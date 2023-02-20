@@ -57,7 +57,9 @@ class InventorySystem:
         # update the product's stock
         new_stock = stock - quantity
         self.db.update(
-            "products", set_clause=f"stock = {new_stock}", where_clause=f"id = {product_id}"
+            "products",
+            set_clause=f"stock = {new_stock}",
+            where_clause=f"id = {product_id}",
         )
 
         # insert a new sale into the database
@@ -80,10 +82,19 @@ class InventorySystem:
         join_clause = "JOIN products ON sales.product_id = products.id"
         report = self.db.select(
             "sales",
-            columns=["sales.id", "products.name", "sales.quantity", "sales.timestamp", "sales.price", "sales.total", "sales.created_at"],
+            columns=[
+                "sales.id",
+                "products.name",
+                "sales.quantity",
+                "sales.timestamp",
+                "sales.price",
+                "sales.total",
+                "sales.created_at",
+            ],
             join_clause=join_clause,
         )
         return report
+
 
 if __name__ == "__main__":
     # create an instance of the inventory system

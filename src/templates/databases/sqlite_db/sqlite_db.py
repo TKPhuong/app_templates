@@ -1,9 +1,11 @@
 import sqlite3
 
+
 class SqliteDB:
     """
     SQLiteデータベースと対話するためのクラスです。
     """
+
     def __init__(self, db_file):
         """
         SqliteDBクラスのコンストラクタです。
@@ -39,7 +41,14 @@ class SqliteDB:
             value_string = ", ".join(["?" for _ in values])
             c.execute(f"INSERT INTO {table_name} VALUES ({value_string})", values)
 
-    def select(self, table_name, columns=None, where_clause=None, order_by=None, join_clause=None):
+    def select(
+        self,
+        table_name,
+        columns=None,
+        where_clause=None,
+        order_by=None,
+        join_clause=None,
+    ):
         with sqlite3.connect(self.db_file) as conn:
             c = conn.cursor()
             column_string = "*"
@@ -62,7 +71,7 @@ class SqliteDB:
         :param table_name: クエリを実行するテーブルの名前です。
         :param set_clause: クエリのSET句
         :param where_clause: クエリのWHERE句を表す文字列です。
-    """
+        """
         with sqlite3.connect(self.db_file) as conn:
             c = conn.cursor()
             query = f"UPDATE {table_name} SET {set_clause} WHERE {where_clause}"

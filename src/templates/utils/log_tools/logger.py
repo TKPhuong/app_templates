@@ -2,9 +2,15 @@ import logging
 import logging.handlers
 import os
 
+
 class Logger:
-    def __init__(self, level='info', format='%(asctime)s %(levelname)s %(filename)s %(name)s: %(message)s',
-                 file_path='./log/log.txt', backup_count=18):
+    def __init__(
+        self,
+        level="info",
+        format="%(asctime)s %(levelname)s %(filename)s %(name)s: %(message)s",
+        file_path="./log/log.txt",
+        backup_count=18,
+    ):
         # ロガーを生成し、ログレベルを指定する
         self._logger = logging.getLogger()
         self._logger.setLevel(level.upper())
@@ -17,10 +23,13 @@ class Logger:
         ch.setLevel(level.upper())
 
         # ログファイル用のローテーションハンドラを生成する
-        fh = logging.handlers.TimedRotatingFileHandler(file_path, encoding='utf-8',
-                                                       when='midnight',
-                                                       interval=1,
-                                                       backupCount=backup_count)
+        fh = logging.handlers.TimedRotatingFileHandler(
+            file_path,
+            encoding="utf-8",
+            when="midnight",
+            interval=1,
+            backupCount=backup_count,
+        )
         fh.setLevel(level.upper())
 
         # フォーマッタを生成し、ハンドラにセットする
