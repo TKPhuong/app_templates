@@ -3,3 +3,4 @@ __pycache__
 mkdir_files
 .tox
 .coverage
+.git
