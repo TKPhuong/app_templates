@@ -24,7 +24,6 @@ class SystemStatus:
             "LOG_FILE_SIZE": 0.0,
         }
 
-
     @classmethod
     def reset(cls):
         cls._instance = None
