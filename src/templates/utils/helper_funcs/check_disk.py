@@ -1,6 +1,9 @@
 import shutil
 
-def check_disk_space(folder: str, attention_size: float, ok_size: float, unit: str = "GB") -> str:
+
+def check_disk_space(
+    folder: str, attention_size: float, ok_size: float, unit: str = "GB"
+) -> str:
     """
     指定されたフォルダーのディスクスペースをチェックして、空き容量に応じたステータスを返します。
 
@@ -13,9 +16,9 @@ def check_disk_space(folder: str, attention_size: float, ok_size: float, unit: s
     """
     # ユニット名と変換係数を対応付ける辞書を定義
     conversion_factors = {
-        "GB": 2 ** 30,
-        "MB": 2 ** 20,
-        "KB": 2 ** 10,
+        "GB": 2**30,
+        "MB": 2**20,
+        "KB": 2**10,
     }
 
     # 指定されたユニット名に対応する変換係数を取得し、存在しない場合は "GB" を使用する

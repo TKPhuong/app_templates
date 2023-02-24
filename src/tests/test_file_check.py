@@ -10,6 +10,7 @@ sys.path.append(parent_dir)
 
 from templates.utils.helper_funcs.file_check import check_file
 
+
 def test_check_file_success():
     # テンポラリディレクトリに作成した一時ファイルがディレクトリに存在する場合はTrueを返すことを確認する。
     with tempfile.TemporaryDirectory() as temp_dir:
@@ -18,9 +19,13 @@ def test_check_file_success():
             f.write("test data")
         assert check_file("temp_file.txt", temp_dir, 404) == True
 
+
 def test_check_file_failure():
     # ファイルがディレクトリに存在しない場合は、FileNotFoundErrorを発生させることを確認する。
     with pytest.raises(FileNotFoundError) as exc_info:
         check_file("nonexistent_file.txt", ".", 404)
     assert exc_info.type is FileNotFoundError
-    assert exc_info.value.args[0] == "ファイル 'nonexistent_file.txt' がディレクトリ '.' に見つかりませんでした。エラーコード: 404"
+    assert (
+        exc_info.value.args[0]
+        == "ファイル 'nonexistent_file.txt' がディレクトリ '.' に見つかりませんでした。エラーコード: 404"
+    )

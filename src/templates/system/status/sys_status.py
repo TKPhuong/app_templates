@@ -2,6 +2,7 @@ class SystemStatus:
     """
     システムステータスを管理するクラス。
     """
+
     _instance = None
 
     def __new__(cls, statuses=None):

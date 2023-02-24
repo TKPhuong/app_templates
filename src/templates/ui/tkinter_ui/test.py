@@ -91,36 +91,83 @@ class FrameWidget(tk.Frame):
             if wtype == "label":
                 text = widget.get("text", "")
                 label = tk.Label(self, text=text)
-                label.grid(row=row, column=column, columnspan=columnspan, rowspan=rowspan, padx=padx, pady=pady, sticky="nsew")
+                label.grid(
+                    row=row,
+                    column=column,
+                    columnspan=columnspan,
+                    rowspan=rowspan,
+                    padx=padx,
+                    pady=pady,
+                    sticky="nsew",
+                )
             elif wtype == "button":
                 text = widget.get("text", "")
                 command = widget.get("command", None)
                 button = tk.Button(self, text=text, command=command)
-                button.grid(row=row, column=column, columnspan=columnspan, rowspan=rowspan, padx=padx, pady=pady, sticky="nsew")
+                button.grid(
+                    row=row,
+                    column=column,
+                    columnspan=columnspan,
+                    rowspan=rowspan,
+                    padx=padx,
+                    pady=pady,
+                    sticky="nsew",
+                )
             elif wtype == "image":
                 img_path = widget.get("path", "")
                 img = Image.open(img_path)
                 photo = ImageTk.PhotoImage(img)
                 label = tk.Label(self, image=photo)
                 label.photo = photo
-                label.grid(row=row, column=column, columnspan=columnspan, rowspan=rowspan, padx=padx, pady=pady, sticky="nsew")
+                label.grid(
+                    row=row,
+                    column=column,
+                    columnspan=columnspan,
+                    rowspan=rowspan,
+                    padx=padx,
+                    pady=pady,
+                    sticky="nsew",
+                )
             elif wtype == "scrolltext":
                 text = widget.get("text", "")
                 st = ScrolledText(self)
                 st.insert(tk.END, text)
-                st.grid(row=row, column=column, columnspan=columnspan, rowspan=rowspan, padx=padx, pady=pady, sticky="nsew")
+                st.grid(
+                    row=row,
+                    column=column,
+                    columnspan=columnspan,
+                    rowspan=rowspan,
+                    padx=padx,
+                    pady=pady,
+                    sticky="nsew",
+                )
             elif wtype == "combo":
                 values = widget.get("values", [])
                 default = widget.get("default", "")
                 cb = Combobox(self, values=values)
                 cb.current(values.index(default))
-                cb.grid(row=row, column=column, columnspan=columnspan, rowspan=rowspan, padx=padx, pady=pady, sticky="nsew")
+                cb.grid(
+                    row=row,
+                    column=column,
+                    columnspan=columnspan,
+                    rowspan=rowspan,
+                    padx=padx,
+                    pady=pady,
+                    sticky="nsew",
+                )
             elif wtype == "frame":
                 fw = FrameWidget(self, widget)
-                fw.grid(row=row, column=column, columnspan=columnspan, rowspan=rowspan, padx=padx, pady=pady, sticky="nsew")
+                fw.grid(
+                    row=row,
+                    column=column,
+                    columnspan=columnspan,
+                    rowspan=rowspan,
+                    padx=padx,
+                    pady=pady,
+                    sticky="nsew",
+                )
             else:
                 pass
-
 
 
 class App(tk.Tk):
@@ -149,14 +196,18 @@ class App(tk.Tk):
 
     # create frame
     def add_widgets(self):
-        root_frame = FrameWidget(self, {"type": "frame", "widgets": self.settings.get("widgets", [])})
+        root_frame = FrameWidget(
+            self, {"type": "frame", "widgets": self.settings.get("widgets", [])}
+        )
         root_frame.grid(row=0, column=0, sticky="nsew")
 
     def run(self):
         self.mainloop()
 
+
 if __name__ == "__main__":
     import os
+
     current_dir = os.path.dirname(os.path.abspath(__file__))
     img_path = os.path.join(current_dir, "resources/sample_img.png")
     settings = {
@@ -264,8 +315,7 @@ if __name__ == "__main__":
                 ],
             }
         ],
-    }   
+    }
 
     app = App(settings)
     app.run()
-

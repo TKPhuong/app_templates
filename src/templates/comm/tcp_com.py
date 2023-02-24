@@ -1,5 +1,6 @@
 import socket
 
+
 class TcpServer:
     """
     A server class for synchronizing data with a remote client.
@@ -25,7 +26,9 @@ class TcpServer:
             with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server_socket:
                 server_socket.bind(self.source_address)
                 server_socket.listen(1)
-                print(f"Server is running on {self.source_address[0]}:{self.source_address[1]}")
+                print(
+                    f"Server is running on {self.source_address[0]}:{self.source_address[1]}"
+                )
 
                 # Wait for incoming client connections
                 while True:
@@ -38,7 +41,7 @@ class TcpServer:
                         break
         except OSError as e:
             print(f"Could not start server: {e}")
-    
+
     def stop(self):
         """
         Stops the server.
@@ -89,7 +92,10 @@ class TcpServer:
         """
         try:
             print("Handling CMD_WORK_HISTORY command...")
-            predict = [field.replace("[", "").replace("]", "").replace(" ", "") for field in data]
+            predict = [
+                field.replace("[", "").replace("]", "").replace(" ", "")
+                for field in data
+            ]
             # TODO: Do something with the data
         except Exception as e:
             print(f"Error handling CMD_WORK_HISTORY command: {e}")

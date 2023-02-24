@@ -3,14 +3,15 @@ from PIL import Image, ImageTk
 from tkinter.scrolledtext import ScrolledText
 from tkinter.ttk import Combobox
 
+
 class App(tk.Tk):
     def __init__(self, **kwargs):
         super().__init__()
-        
+
         self.title("My App")
         self.default_width = 500
         self.default_height = 400
-        
+
         # configure the row and column properties
         self.grid_rowconfigure(0, weight=1)
         self.grid_columnconfigure(0, weight=1)
@@ -23,20 +24,20 @@ class App(tk.Tk):
 
         # create main menu
         self.create_main_menu()
-        
+
         # create toolbar
         self.create_toolbar()
-        
+
         # create status bar
         self.create_status_bar()
-        
+
         # add widgets to the main window
         self.add_widgets()
-        
+
     def create_main_menu(self):
         # create main menu items and add them to the menu bar
         menubar = tk.Menu(self)
-        
+
         for item in self.main_menu_items:
             label = item.get("label", "")
             command = item.get("command", None)
@@ -46,35 +47,35 @@ class App(tk.Tk):
                 subcommand = subitem.get("command", None)
                 menu.add_command(label=sublabel, command=subcommand)
             menubar.add_cascade(label=label, menu=menu)
-        
+
         self.config(menu=menubar)
-        
+
     def create_toolbar(self):
         # create toolbar buttons and add them to a toolbar frame
         toolbar = tk.Frame(self, bd=1, relief=tk.RAISED)
-        
+
         for button in self.toolbar_buttons:
             text = button.get("text", "")
             command = button.get("command", None)
             button = tk.Button(toolbar, text=text, command=command)
             button.pack(side=tk.LEFT, padx=2, pady=2)
-        
+
         toolbar.pack(side=tk.TOP, fill=tk.X)
-        
+
     def create_status_bar(self):
         # create status bar labels and add them to the main window
         statusbar = tk.Label(self, bd=1, relief=tk.SUNKEN, anchor=tk.W)
-        
+
         for label in self.status_bar_labels:
             text = label.get("text", "")
             side = label.get("side", tk.LEFT)
             label = tk.Label(statusbar, text=text)
             label.pack(side=side)
-        
+
         statusbar.pack(side=tk.BOTTOM, fill=tk.X)
-        
+
     def add_widgets(self):
-    # add other widgets to the main window (e.g. buttons, labels, etc.)
+        # add other widgets to the main window (e.g. buttons, labels, etc.)
         for widget in self.widgets:
             wtype = widget.get("type", "label")
             padx = widget.get("padx", 0)
@@ -118,7 +119,7 @@ class App(tk.Tk):
                 cb.place(x=x, y=y, width=width, height=height)
             else:
                 pass
-                
+
     def resize_window(self, width=None, height=None):
         if width is None:
             width = self.default_width
@@ -129,6 +130,7 @@ class App(tk.Tk):
 
 if __name__ == "__main__":
     import os
+
     current_dir = os.path.dirname(os.path.abspath(__file__))
     img_path = os.path.join(current_dir, "resources/sample_img.png")
     APPW, APPH = 1200, 720
@@ -140,7 +142,7 @@ if __name__ == "__main__":
                     {"label": "New", "command": None},
                     {"label": "Open", "command": None},
                     {"label": "Save", "command": None},
-                ]
+                ],
             },
             {
                 "label": "Edit",
@@ -148,7 +150,7 @@ if __name__ == "__main__":
                     {"label": "Cut", "command": None},
                     {"label": "Copy", "command": None},
                     {"label": "Paste", "command": None},
-                ]
+                ],
             },
             {"label": "Help", "command": None},
         ],
@@ -166,16 +168,50 @@ if __name__ == "__main__":
             {"text": "Line 3", "side": tk.RIGHT},
         ],
         "widgets": [
-            {"type": "label", "text": "Hello, World!", "padx": 20, "pady": 20, "x": APPW//2, "y": APPH//4},
-            {"type": "button", "text": "Click me!", "command": None, "padx": 20, "pady": 20, "width": 300, "height": 100},
-            {"type": "label", "text": "Goodbye, World!", "padx": 20, "pady": 20, "x": APPW*3//4, "y": APPH//4, "width": 300, "height": 100},
+            {
+                "type": "label",
+                "text": "Hello, World!",
+                "padx": 20,
+                "pady": 20,
+                "x": APPW // 2,
+                "y": APPH // 4,
+            },
+            {
+                "type": "button",
+                "text": "Click me!",
+                "command": None,
+                "padx": 20,
+                "pady": 20,
+                "width": 300,
+                "height": 100,
+            },
+            {
+                "type": "label",
+                "text": "Goodbye, World!",
+                "padx": 20,
+                "pady": 20,
+                "x": APPW * 3 // 4,
+                "y": APPH // 4,
+                "width": 300,
+                "height": 100,
+            },
             {"type": "image", "path": img_path, "padx": 20, "pady": 20},
-            {"type": "scrolltext", "text": "This is a ScrolledText widget.\n"*20, "x": APPW//2 - 250, "y": APPH*3//4, "width": 500, "height": 100},
-            {"type": "combo", "values": ["Option 1", "Option 2", "Option 3"], "default": "Option 2"},
+            {
+                "type": "scrolltext",
+                "text": "This is a ScrolledText widget.\n" * 20,
+                "x": APPW // 2 - 250,
+                "y": APPH * 3 // 4,
+                "width": 500,
+                "height": 100,
+            },
+            {
+                "type": "combo",
+                "values": ["Option 1", "Option 2", "Option 3"],
+                "default": "Option 2",
+            },
         ],
-
     }
-    
+
     app = App(**settings)
     app.resize_window(width=APPW, height=APPH)
     app.mainloop()

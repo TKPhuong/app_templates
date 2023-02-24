@@ -29,7 +29,9 @@ class MainMenu:
 
 
 class ToolBar:
-    def __init__(self, parent, buttons, row=0, column=0, columnspan=1, rowspan=1, sticky="nsew"):
+    def __init__(
+        self, parent, buttons, row=0, column=0, columnspan=1, rowspan=1, sticky="nsew"
+    ):
         self.parent = parent
         self.buttons = buttons
         self.row = row
@@ -48,12 +50,19 @@ class ToolBar:
             button = tk.Button(toolbar, text=text, command=command)
             button.grid(row=0, column=index, padx=2, pady=2)
 
-        toolbar.grid(row=self.row, column=self.column, columnspan=self.columnspan, rowspan=self.rowspan, sticky=self.sticky)
-
+        toolbar.grid(
+            row=self.row,
+            column=self.column,
+            columnspan=self.columnspan,
+            rowspan=self.rowspan,
+            sticky=self.sticky,
+        )
 
 
 class StatusBar:
-    def __init__(self, parent, labels, row=1, column=0, columnspan=1, rowspan=1, sticky="ew"):
+    def __init__(
+        self, parent, labels, row=1, column=0, columnspan=1, rowspan=1, sticky="ew"
+    ):
         self.parent = parent
         self.labels = labels
         self.row = row
@@ -73,8 +82,13 @@ class StatusBar:
             label = tk.Label(statusbar, text=text)
             label.grid(row=0, column=index, padx=2, pady=2, sticky=sticky)
 
-        statusbar.grid(row=self.row, column=self.column, columnspan=self.columnspan, rowspan=self.rowspan, sticky=self.sticky)
-
+        statusbar.grid(
+            row=self.row,
+            column=self.column,
+            columnspan=self.columnspan,
+            rowspan=self.rowspan,
+            sticky=self.sticky,
+        )
 
 
 class App(tk.Tk):
@@ -88,16 +102,27 @@ class App(tk.Tk):
         #  add the widgets to the main window using the grid layout manager.
         self.grid_rowconfigure(0, weight=1)
         self.grid_columnconfigure(0, weight=1)
-        
+
         # create main menu
         MainMenu(self, self.settings.get("main_menu_items", []))
 
-
         # create toolbar
-        ToolBar(self, self.settings.get("toolbar_buttons", []), row=0, column=0, sticky="nsew")
+        ToolBar(
+            self,
+            self.settings.get("toolbar_buttons", []),
+            row=0,
+            column=0,
+            sticky="nsew",
+        )
 
         # create status bar
-        StatusBar(self, self.settings.get("status_bar_labels", []), row=6, column=0, sticky="ew")
+        StatusBar(
+            self,
+            self.settings.get("status_bar_labels", []),
+            row=6,
+            column=0,
+            sticky="ew",
+        )
 
         # add widgets to the main window
         self.add_widgets()
@@ -118,30 +143,70 @@ class App(tk.Tk):
             if wtype == "label":
                 text = widget.get("text", "")
                 label = tk.Label(self, text=text)
-                label.grid(row=row, column=column, columnspan=columnspan, rowspan=rowspan, padx=padx, pady=pady, sticky="nsew")
+                label.grid(
+                    row=row,
+                    column=column,
+                    columnspan=columnspan,
+                    rowspan=rowspan,
+                    padx=padx,
+                    pady=pady,
+                    sticky="nsew",
+                )
             elif wtype == "button":
                 text = widget.get("text", "")
                 command = widget.get("command", None)
                 button = tk.Button(self, text=text, command=command)
-                button.grid(row=row, column=column, columnspan=columnspan, rowspan=rowspan, padx=padx, pady=pady, sticky="nsew")
+                button.grid(
+                    row=row,
+                    column=column,
+                    columnspan=columnspan,
+                    rowspan=rowspan,
+                    padx=padx,
+                    pady=pady,
+                    sticky="nsew",
+                )
             elif wtype == "image":
                 img_path = widget.get("path", "")
                 img = Image.open(img_path)
                 photo = ImageTk.PhotoImage(img)
                 label = tk.Label(self, image=photo)
                 label.photo = photo
-                label.grid(row=row, column=column, columnspan=columnspan, rowspan=rowspan, padx=padx, pady=pady, sticky="nsew")
+                label.grid(
+                    row=row,
+                    column=column,
+                    columnspan=columnspan,
+                    rowspan=rowspan,
+                    padx=padx,
+                    pady=pady,
+                    sticky="nsew",
+                )
             elif wtype == "scrolltext":
                 text = widget.get("text", "")
                 st = ScrolledText(self)
                 st.insert(tk.END, text)
-                st.grid(row=row, column=column, columnspan=columnspan, rowspan=rowspan, padx=padx, pady=pady, sticky="nsew")
+                st.grid(
+                    row=row,
+                    column=column,
+                    columnspan=columnspan,
+                    rowspan=rowspan,
+                    padx=padx,
+                    pady=pady,
+                    sticky="nsew",
+                )
             elif wtype == "combo":
                 values = widget.get("values", [])
                 default = widget.get("default", "")
                 cb = Combobox(self, values=values)
                 cb.current(values.index(default))
-                cb.grid(row=row, column=column, columnspan=columnspan, rowspan=rowspan, padx=padx, pady=pady, sticky="nsew")
+                cb.grid(
+                    row=row,
+                    column=column,
+                    columnspan=columnspan,
+                    rowspan=rowspan,
+                    padx=padx,
+                    pady=pady,
+                    sticky="nsew",
+                )
             else:
                 pass
 
@@ -151,6 +216,7 @@ class App(tk.Tk):
 
 if __name__ == "__main__":
     import os
+
     current_dir = os.path.dirname(os.path.abspath(__file__))
     img_path = os.path.join(current_dir, "resources/sample_img.png")
     settings = {
@@ -163,7 +229,7 @@ if __name__ == "__main__":
                     {"label": "New", "command": None},
                     {"label": "Open", "command": None},
                     {"label": "Save", "command": None},
-                ]
+                ],
             },
             {
                 "label": "Edit",
@@ -171,7 +237,7 @@ if __name__ == "__main__":
                     {"label": "Cut", "command": None},
                     {"label": "Copy", "command": None},
                     {"label": "Paste", "command": None},
-                ]
+                ],
             },
             {"label": "Help", "command": None},
         ],
@@ -188,17 +254,67 @@ if __name__ == "__main__":
             {"text": "Line 2", "side": "left", "sticky": "w"},
             {"text": "Line 3", "side": "right", "sticky": "w"},
         ],
-
         "widgets": [
-            {"type": "label", "text": "Hello, World!", "padx": 20, "pady": 20, "columnspan": 3, "rowspan": None, "row": 1, "column": 1},
-            {"type": "button", "text": "Click me!", "command": None, "padx": 20, "pady": 20, "columnspan": 3, "rowspan": None, "row": 2, "column": 1},
-            {"type": "label", "text": "Goodbye, World!", "padx": 20, "pady": 20, "columnspan": 3, "rowspan": None, "row": 3, "column": 0},
-            {"type": "image", "path": img_path, "columnspan": 3, "rowspan": None, "row": 4, "column": 0},
-            {"type": "scrolltext", "text": "This is a ScrolledText widget.\n"*20, "padx": 20, "pady": 20, "columnspan": 3, "rowspan": None, "row": 5, "column": 0},
-            {"type": "combo", "values": ["Option 1", "Option 2", "Option 3"], "default": "Option 2", "columnspan": 1, "rowspan": None, "row": 4, "column": 1},
+            {
+                "type": "label",
+                "text": "Hello, World!",
+                "padx": 20,
+                "pady": 20,
+                "columnspan": 3,
+                "rowspan": None,
+                "row": 1,
+                "column": 1,
+            },
+            {
+                "type": "button",
+                "text": "Click me!",
+                "command": None,
+                "padx": 20,
+                "pady": 20,
+                "columnspan": 3,
+                "rowspan": None,
+                "row": 2,
+                "column": 1,
+            },
+            {
+                "type": "label",
+                "text": "Goodbye, World!",
+                "padx": 20,
+                "pady": 20,
+                "columnspan": 3,
+                "rowspan": None,
+                "row": 3,
+                "column": 0,
+            },
+            {
+                "type": "image",
+                "path": img_path,
+                "columnspan": 3,
+                "rowspan": None,
+                "row": 4,
+                "column": 0,
+            },
+            {
+                "type": "scrolltext",
+                "text": "This is a ScrolledText widget.\n" * 20,
+                "padx": 20,
+                "pady": 20,
+                "columnspan": 3,
+                "rowspan": None,
+                "row": 5,
+                "column": 0,
+            },
+            {
+                "type": "combo",
+                "values": ["Option 1", "Option 2", "Option 3"],
+                "default": "Option 2",
+                "columnspan": 1,
+                "rowspan": None,
+                "row": 4,
+                "column": 1,
+            },
         ],
     }
 
 app = App(settings)
 app.run()
-
