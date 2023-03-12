@@ -2,7 +2,7 @@
 import datetime
 
 
-def time2datetime(now):
+def timestamp2str(now):
     """
     現在の日付と時刻を取得するための関数
     :Parameters:

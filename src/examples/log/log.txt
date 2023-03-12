@@ -1,6 +1,2 @@
-2023-02-20 13:43:47,211 INFO log_ex1.py root: This is a message from the main logger.
-2023-02-20 13:43:47,212 ERROR log_ex1.py module1: This is an error message from the module1 logger.
-2023-02-20 13:44:53,228 INFO log_ex1.py root: This is a message from the main logger.
-2023-02-20 13:44:53,228 ERROR log_ex1.py module1: This is an error message from the module1 logger.
-2023-02-20 13:51:32,495 INFO log_ex1.py root: This is a message from the main logger.
-2023-02-20 13:51:32,496 ERROR log_ex1.py module1: This is an error message from the module1 logger.
+2023-02-27 15:29:26,274 INFO log_ex1.py root: This is a message from the main logger.
+2023-02-27 15:29:26,280 ERROR log_ex1.py module1: This is an error message from the module1 logger.

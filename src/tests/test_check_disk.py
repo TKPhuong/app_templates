@@ -10,7 +10,7 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(current_dir)
 sys.path.append(parent_dir)
 
-from templates.utils.helper_funcs.check_disk import check_disk_space
+from templates.utils.helper_funcs import check_disk_space
 
 
 @pytest.mark.parametrize(

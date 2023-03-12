@@ -1,13 +1,15 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="your_package_name",
+    name="db_handlers",
     version="0.1",
     description="A description of your package",
     author="Your Name",
     author_email="your.email@example.com",
     packages=find_packages(),
-    install_requires=["sqlite3"],
+    install_requires=[
+        'sqlalchemy',
+    ],
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Developers",

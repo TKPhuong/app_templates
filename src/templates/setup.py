@@ -7,10 +7,12 @@ setup(
     description="Code templates for ease of future usages",
     author="Author Name",
     author_email="author@example.com",
-    install_requires=[],
+    install_requires=[
+        'sqlalchemy',
+    ],
     classifiers=[
         "Programming Language :: Python :: 3",
         "Operating System :: OS Independent",
     ],
-    python_requires=">=3.6",
+    python_requires=">=3.7",
 )

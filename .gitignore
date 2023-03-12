@@ -4,3 +4,4 @@ mkdir_files
 .tox
 .coverage
 .git
+.db

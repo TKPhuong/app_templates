@@ -1,8 +1,8 @@
 import logging
 import re
 import os
-import shutil
 import sys
+import pytest
 
 # add the parent directory of the current file to the system path
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -12,34 +12,50 @@ sys.path.append(parent_dir)
 from templates.utils.log_tools.logger import Logger
 
 
-def test_logger():
-    logger = Logger(level="debug")
-    my_logger = logger.get_logger("my_module")
-
-    my_logger.debug("debug message")
-    my_logger.info("info message")
-    my_logger.warning("warning message")
-    my_logger.error("error message")
-    my_logger.critical("critical message")
-
-    # Check that log file was created
-    assert os.path.exists("./log/log.txt")
-
-    # Check that log file contains the expected messages
-    with open("./log/log.txt", "r") as log_file:
-        log_contents = log_file.read()
-        assert "debug message" in log_contents
-        assert "info message" in log_contents
-        assert "warning message" in log_contents
-        assert "error message" in log_contents
-        assert "critical message" in log_contents
-
-        # Check that log messages are formatted correctly
-        expected_log_message = r"\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2},\d{3} DEBUG test_logger.py my_module: debug message\n"
-        assert re.search(expected_log_message, log_contents) is not None
-
-    # Shut down logging system to remove the temporary log directory
+@pytest.fixture
+def logger(tmpdir):
+    log_file = tmpdir.join("log.txt")
+    logger = Logger(file_path=str(log_file))
+    yield logger
     logging.shutdown()
 
-    # Clean up log file and directory
-    shutil.rmtree("./log")
+
+def test_logger_output(logger, tmpdir):
+
+    logger.debug("This is a debug message")
+    logger.info("This is an info message")
+    logger.warning("This is a warning message")
+    logger.error("This is an error message")
+    logger.critical("This is a critical message")
+
+    with open(logger.handlers[1].baseFilename, "r") as f:
+        log_contents = f.read()
+        assert "This is a debug message" not in log_contents
+        assert "This is an info message" in log_contents
+        assert "This is a warning message" in log_contents
+        assert "This is an error message" in log_contents
+        assert "This is a critical message" in log_contents
+        
+        # check that messages are in the correct format
+        log_lines = log_contents.strip().split('\n')
+        datestamp_pattern = r'\d{4}-\d{2}-\d{2}'
+        timestamp_pattern = r'\d{2}:\d{2}:\d{2},\d{3}'
+        for line in log_lines:
+            format, message = line.strip().split(": ")
+            parts = format.strip().split(" ")
+            assert len(parts) == 5
+            assert re.match(datestamp_pattern, parts[0])
+            assert re.match(timestamp_pattern, parts[1])
+            assert parts[2] in ['DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL']
+            assert parts[3].endswith('.py')
+            assert parts[4].startswith('main')
+            assert message.startswith('This is ')
+            
+
+
+def test_logger_child(logger):
+    child_logger = logger.getChild("child")
+    assert child_logger.name == "main.child"
+    assert child_logger.level == logging.INFO
+
+

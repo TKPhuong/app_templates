@@ -91,7 +91,7 @@ class StatusBar:
         )
 
 
-class App(tk.Tk):
+class UI(tk.Tk):
     def __init__(self, settings):
         super().__init__()
         self.title(settings["title"])

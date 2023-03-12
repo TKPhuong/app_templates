@@ -8,7 +8,7 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(current_dir)
 sys.path.append(parent_dir)
 
-from templates.utils.helper_funcs.file_check import check_file
+from templates.utils.helper_funcs import check_file
 
 
 def test_check_file_success():

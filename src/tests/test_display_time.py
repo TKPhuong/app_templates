@@ -8,15 +8,15 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(current_dir)
 sys.path.append(parent_dir)
 
-from templates.utils.helper_funcs.display_time import time2datetime
+from templates.utils.helper_funcs.display_time import timestamp2str
 
 
-def test_time2datetime():
+def test_timestamp2str():
     # エポックタイムから現在時刻を取得する
     now = time.time()
 
     # time2datetime関数で現在時刻を変換する
-    now_ymdhms = time2datetime(now)
+    now_ymdhms = timestamp2str(now)
 
     # 現在時刻をdatetimeオブジェクトに変換する
     now_datetime = datetime.datetime.fromtimestamp(now)

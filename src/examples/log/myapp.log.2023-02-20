@@ -1,0 +1,11 @@
+2023-02-20 13:38:35,901 INFO log_ex.py root: User Alice created.
+2023-02-20 13:38:35,901 INFO log_ex.py root: User Bob created.
+2023-02-20 13:38:35,917 INFO log_ex.py root: Chatroom created.
+2023-02-20 13:38:35,917 INFO log_ex.py root: User Alice added to chatroom.
+2023-02-20 13:38:35,917 INFO log_ex.py root: User Bob added to chatroom.
+2023-02-20 13:38:35,918 INFO log_ex.py root: Alice sent message: Hi Bob!
+2023-02-20 13:38:35,918 INFO log_ex.py root: Chatroom received message from Alice: Hi Bob!
+2023-02-20 13:38:35,919 INFO log_ex.py root: Bob received message: Hi Bob!
+2023-02-20 13:38:35,919 INFO log_ex.py root: Bob sent message: Hi Alice, how are you?
+2023-02-20 13:38:35,920 INFO log_ex.py root: Chatroom received message from Bob: Hi Alice, how are you?
+2023-02-20 13:38:35,920 INFO log_ex.py root: Alice received message: Hi Alice, how are you?
