@@ -1,7 +1,7 @@
 import tempfile
 import os
 import sys
-
+import logging
 # add the parent directory of the current file to the system path
 current_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir =  os.path.dirname(os.path.dirname(current_dir))
@@ -23,3 +23,4 @@ if __name__ == "__main__":
         client = TcpClient(logger, "localhost", 5001)
         result = client.send_data({"cmd":"CMD_REQUEST"})
         logger.info(f"result: {result}")
+        logging.shutdown()
