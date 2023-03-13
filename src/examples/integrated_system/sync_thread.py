@@ -16,15 +16,19 @@ from templates.threadman.func_thread import FuncThread
 from templates.threadman.sys_thread import SysThread
 from templates.comm.tcp_com import TcpClient
 from edge_tcp_server import EdgeTcpServer
+from templates.system.status import StatusTracker
 
 
 class EdgeSynchronizeThread(SysThread):
-    def __init__(self, name, logger, sys_queues, parent, event=None, comm_info=None, *args, **kwargs):
+    def __init__(self, name, logger, sys_queues, parent, 
+                 initial_statuses:dict, event=None, comm_info=None,):
         super().__init__(name, logger, sys_queues, parent=parent, event=event)
         self.comm_info = comm_info
         self.tcp_server = None
         self.tcp_client = None
         self.server_watchdog_thread = None
+        # StatusTrackerの初期化
+        self.stats_tracker = StatusTracker(id=self, initial_status=initial_statuses)   
 
     def command_register(self):
         super().command_register()

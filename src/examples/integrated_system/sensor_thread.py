@@ -12,11 +12,14 @@ sys.path.append(parent_dir)
 
 from templates.threadman.sys_thread import SysThread
 from templates.utils.helper_funcs.display_time import timestamp2str
+from templates.system.status import StatusTracker
 
 
 class SensorThread(SysThread):
-    def __init__(self, name, logger, sys_queues, parent, event):
+    def __init__(self, name, logger, sys_queues, parent, event, initial_statuses:dict):
         super().__init__(name, logger, sys_queues, parent=parent, event=event)  
+        # StatusTrackerの初期化
+        self.stats_tracker = StatusTracker(id=self, initial_status=initial_statuses)   
 
     def command_register(self):
         super().command_register()

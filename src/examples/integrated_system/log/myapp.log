@@ -1279,3 +1279,64 @@
 2023-03-13 14:29:01,939 INFO data_collection_edge.py EdgeApp: Program edge1 exited...
 2023-03-13 14:29:01,939 INFO sys_thread.py EdgeApp: MainThread edge1 のクリーンアップが完了しました。
 2023-03-13 14:29:01,940 INFO sys_thread.py EdgeApp: MainThread edge1 が停止しました。
+2023-03-13 16:16:27,629 INFO sys_thread.py EdgeApp: MainThread edge1 が開始されました。
+2023-03-13 16:16:27,629 INFO sys_thread.py EdgeApp: MainThread edge1 が初期化を開始します…
+2023-03-13 16:16:27,634 INFO sys_thread.py EdgeApp.sensor: Thread sensor が開始されました。
+2023-03-13 16:16:27,634 INFO data_collection_edge.py EdgeApp: sensor thread resumed
+2023-03-13 16:16:27,634 INFO sys_thread.py EdgeApp.sensor: Thread sensor が初期化を開始します…
+2023-03-13 16:16:27,635 INFO sys_thread.py EdgeApp.data_process: Thread data_process が開始されました。
+2023-03-13 16:16:27,635 INFO data_collection_edge.py EdgeApp: process thread resumed
+2023-03-13 16:16:27,635 INFO sys_thread.py EdgeApp.sensor: Thread sensor の初期化が完了しました。
+2023-03-13 16:16:27,635 INFO sys_thread.py EdgeApp.data_process: Thread data_process が初期化を開始します…
+2023-03-13 16:16:27,636 INFO sys_thread.py EdgeApp.sync: Thread sync が開始されました。
+2023-03-13 16:16:27,636 INFO data_collection_edge.py EdgeApp: sync thread resumed
+2023-03-13 16:16:27,637 INFO sys_thread.py EdgeApp.data_process: Thread data_process の初期化が完了しました。
+2023-03-13 16:16:27,637 INFO sys_thread.py EdgeApp.sync: Thread sync が初期化を開始します…
+2023-03-13 16:16:27,638 INFO sys_thread.py EdgeApp.database: Thread database が開始されました。
+2023-03-13 16:16:27,638 INFO data_collection_edge.py EdgeApp: db thread resumed
+2023-03-13 16:16:27,639 INFO sys_thread.py EdgeApp.database: Thread database が初期化を開始します…
+2023-03-13 16:16:27,640 INFO sys_thread.py EdgeApp: MainThread edge1 の初期化が完了しました。
+2023-03-13 16:16:27,641 INFO tcp_com.py EdgeApp.sync.EdgeTcpServer: TCPサーバーの処理化を行う...
+2023-03-13 16:16:27,643 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 87.13357030985738
+2023-03-13 16:16:27,644 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 16:16:27,644 INFO sys_thread.py EdgeApp.sync: Thread sync の初期化が完了しました。
+2023-03-13 16:16:27,645 INFO process_thread.py EdgeApp.data_process: Processed data: 174.26714061971475
+2023-03-13 16:16:27,656 INFO tcp_com.py EdgeApp.sync.EdgeTcpServer: Server is running on localhost:5001
+2023-03-13 16:16:27,660 INFO sys_thread.py EdgeApp.database: Thread database の初期化が完了しました。
+2023-03-13 16:16:28,649 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 89.14293077095795
+2023-03-13 16:16:28,649 INFO process_thread.py EdgeApp.data_process: Processed data: 178.2858615419159
+2023-03-13 16:16:29,655 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 71.2987477648821
+2023-03-13 16:16:29,655 INFO process_thread.py EdgeApp.data_process: Processed data: 142.5974955297642
+2023-03-13 16:16:30,665 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 45.44233530298231
+2023-03-13 16:16:30,665 INFO process_thread.py EdgeApp.data_process: Processed data: 90.88467060596462
+2023-03-13 16:16:31,677 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 51.227203810276244
+2023-03-13 16:16:31,678 INFO process_thread.py EdgeApp.data_process: Processed data: 102.45440762055249
+2023-03-13 16:16:32,653 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 16:16:32,682 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 33.308069230640626
+2023-03-13 16:16:32,683 INFO process_thread.py EdgeApp.data_process: Processed data: 66.61613846128125
+2023-03-13 16:16:33,696 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 45.02838886533752
+2023-03-13 16:16:33,696 INFO process_thread.py EdgeApp.data_process: Processed data: 90.05677773067504
+2023-03-13 16:16:34,702 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 44.708264588798116
+2023-03-13 16:16:34,703 INFO process_thread.py EdgeApp.data_process: Processed data: 89.41652917759623
+2023-03-13 16:16:35,704 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 14.850969931671587
+2023-03-13 16:16:35,704 INFO process_thread.py EdgeApp.data_process: Processed data: 29.701939863343174
+2023-03-13 16:16:36,718 INFO data_collection_edge.py EdgeApp: MainThread edge1 send shutdown signal to other threads...
+2023-03-13 16:16:36,718 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 29.00623030052455
+2023-03-13 16:16:36,719 INFO sensor_thread.py EdgeApp.sensor: Thread sensor cleaned up
+2023-03-13 16:16:36,719 INFO process_thread.py EdgeApp.data_process: Processed data: 58.0124606010491
+2023-03-13 16:16:36,720 INFO sys_thread.py EdgeApp.sensor: Thread sensor のクリーンアップが完了しました。
+2023-03-13 16:16:36,721 INFO sys_thread.py EdgeApp.sensor: Thread sensor が停止しました。
+2023-03-13 16:16:36,722 INFO sys_thread.py EdgeApp.data_process: Thread data_process がクリーンアップを開始します…
+2023-03-13 16:16:36,722 INFO sys_thread.py EdgeApp.data_process: Thread data_process のクリーンアップが完了しました。
+2023-03-13 16:16:36,724 INFO sys_thread.py EdgeApp.data_process: Thread data_process が停止しました。
+2023-03-13 16:16:36,724 INFO sys_thread.py EdgeApp.sync: Thread sync がクリーンアップを開始します…
+2023-03-13 16:16:36,725 INFO tcp_com.py EdgeApp.sync.EdgeTcpServer: Stopping server...
+2023-03-13 16:16:36,725 INFO sys_thread.py EdgeApp.sync: Thread sync のクリーンアップが完了しました。
+2023-03-13 16:16:36,725 ERROR tcp_com.py EdgeApp.sync.EdgeTcpServer: Server could not be started or get terminated -[WinError 10038] An operation was attempted on something that is not a socket
+2023-03-13 16:16:36,726 INFO sys_thread.py EdgeApp.sync: Thread sync が停止しました。
+2023-03-13 16:16:36,726 WARNING tcp_com.py EdgeApp.sync.EdgeTcpServer: Server Stopped !
+2023-03-13 16:16:36,746 INFO sys_thread.py EdgeApp.database: Thread database がクリーンアップを開始します…
+2023-03-13 16:16:36,747 INFO sys_thread.py EdgeApp.database: Thread database のクリーンアップが完了しました。
+2023-03-13 16:16:36,748 INFO sys_thread.py EdgeApp.database: Thread database が停止しました。
+2023-03-13 16:16:36,749 INFO sys_thread.py EdgeApp: MainThread edge1 のクリーンアップが完了しました。
+2023-03-13 16:16:36,749 INFO sys_thread.py EdgeApp: MainThread edge1 が停止しました。

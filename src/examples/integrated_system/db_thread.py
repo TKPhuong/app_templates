@@ -11,16 +11,20 @@ sys.path.append(parent_dir)
 from templates.threadman.func_thread import FuncThread
 from templates.threadman.sys_thread import SysThread
 from templates.databases import SqliteDB
+from templates.system.status import StatusTracker
 
 
 class EdgeDBThread(SysThread):
-    def __init__(self, name:str, logger, sys_queues, parent, event=None, db_file:str="sensor_data.db"):
+    def __init__(self, name:str, logger, sys_queues, parent, initial_statuses:dict,
+                  event=None, db_file:str="sensor_data.db", ):
         super().__init__(name, logger, sys_queues, parent=parent, event=event)
         self.db_file = db_file
 
         self.db = None
         self.tables = ["sensor_data"]
         self.last_sent_index = 0  # initialize index of last sent data
+        # StatusTrackerの初期化
+        self.stats_tracker = StatusTracker(id=self, initial_status=initial_statuses)   
 
     def command_register(self):
         super().command_register()

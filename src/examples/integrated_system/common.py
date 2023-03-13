@@ -8,18 +8,25 @@ sys.path.append(parent_dir)
 
 from templates.system.constant import ConstantMaker
 
-class States(metaclass=ConstantMaker):
-    """
-    システムの状態を表す定数を定義するクラスです。
-    """
-    STARTUP = "スタートアップ"
-    INITIATING = "処理化中"
-    INITIATED = "処理化済み"
-    IDLE = "タスク待ち"
-    PROCESSING = "タスク処理中"
-    ERROR = "エラー発生中"
-    CLEANUP = "クリーンアップ"
-    EXITED = "終了"
+# class States(metaclass=ConstantMaker):
+#     """
+#     システムの状態を表す定数を定義するクラスです。
+#     """
+#     STARTUP = "スタートアップ"
+#     INITIATING = "処理化中"
+#     INITIATED = "処理化済み"
+#     IDLE = "タスク待ち"
+#     PROCESSING = "タスク処理中"
+#     ERROR = "エラー発生中"
+#     CLEANUP = "クリーンアップ"
+#     EXITED = "終了"
 
-APP_INIT_STATS = {"STATE":States.STARTUP}
-THREAD_INIT_STATS = {"STATE":States["start_up"]}
+
+SYSTEM_INIT_STATS = {
+    "APP_STATE": None,
+    "STORAGE": None,
+}
+
+THREAD_INIT_STATS = {
+    "STATE": None,
+}

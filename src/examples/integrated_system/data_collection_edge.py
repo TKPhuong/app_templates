@@ -14,14 +14,16 @@ sys.path.append(parent_dir)
 
 from templates.threadman.func_thread import FuncThread
 from templates.threadman.sys_thread import SysThread
-from templates.utils.helper_funcs.display_time import timestamp2str
-from templates.utils.helper_funcs import check_file
+from templates.utils.helper_funcs import check_file, check_disk_space
 from templates.utils.log_tools.logger import Logger
+from templates.system.status import StatusTracker
 
 from sensor_thread  import SensorThread
 from process_thread  import DataProcessThread
 from db_thread  import EdgeDBThread
 from sync_thread  import EdgeSynchronizeThread
+from common import SYSTEM_INIT_STATS, THREAD_INIT_STATS
+
 
 
 class EdgeApp(SysThread):
@@ -32,7 +34,8 @@ class EdgeApp(SysThread):
                 comm_info={
                             "main":{"ip":"localhost", "port":5000},
                             "own":{"ip":"localhost", "port":5001}
-                }
+                },
+                initial_statuses:dict=SYSTEM_INIT_STATS,
     ):  
         # Save communication info to instance
         self.comm_info = comm_info
@@ -56,6 +59,7 @@ class EdgeApp(SysThread):
             logger.getChild(self.procs_name["sensor"]), 
             queues,
             parent=self,
+            initial_statuses=THREAD_INIT_STATS,
             event=self.thread_handlers["sensor"],
         )
         self.threads["process"] = DataProcessThread(
@@ -63,6 +67,7 @@ class EdgeApp(SysThread):
             logger.getChild(self.procs_name["process"]),  
             queues,
             parent=self,
+            initial_statuses=THREAD_INIT_STATS,
             event=self.thread_handlers["process"],
         )
         self.threads["sync"] = EdgeSynchronizeThread(
@@ -70,6 +75,7 @@ class EdgeApp(SysThread):
             logger.getChild(self.procs_name["sync"]), 
             queues,
             parent=self,
+            initial_statuses=THREAD_INIT_STATS,
             event=self.thread_handlers["sync"],
             comm_info=self.comm_info,
         )
@@ -78,6 +84,7 @@ class EdgeApp(SysThread):
             logger.getChild(self.procs_name["db"]), 
             queues,
             parent=self,
+            initial_statuses=THREAD_INIT_STATS,
             event=self.thread_handlers["db"],
         )
 
@@ -88,6 +95,9 @@ class EdgeApp(SysThread):
             is_main=True,
             q_timeout=1
         )
+        # StatusTrackerの初期化
+        self.stats_tracker = StatusTracker(id=self, initial_status=initial_statuses)
+    
 
     def command_register(self):
         super().command_register()
