@@ -27,7 +27,3 @@ class DataProcessThread(SysThread):
         self.logger.info(f"Processed data: {processed_data}")
         self.add_task2queue("database", {"cmd": "insert", "table": "sensor_data",
                                         "data": (time_stamp, processed_data), "from": self.name})
-
-    def thread_cleanup(self):
-        self.logger.info(f"Thread {self.name} cleaned up")
-        # Disconnect from sensor

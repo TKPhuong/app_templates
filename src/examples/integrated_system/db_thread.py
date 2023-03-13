@@ -53,9 +53,9 @@ class EdgeDBThread(SysThread):
         self.get_data_thread.start()
 
     def thread_cleanup(self):
+        super().thread_cleanup()
         if self.db:
             self.db = None
-        self.logger.info(f"Thread {self.name} cleaned up")
 
     def get_data(self):
         # If the accumulated data is not enough (5 records), since last send, wait until get enough data and send back to EdgeSynchronizeThread

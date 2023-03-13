@@ -693,3 +693,589 @@
 2023-03-13 09:57:21,042 INFO sys_thread.py EdgeApp.database: database スレッドが停止しました。
 2023-03-13 09:57:21,042 INFO data_collection_edge.py EdgeApp: Program edge1 exited...
 2023-03-13 09:57:21,043 INFO sys_thread.py EdgeApp: edge1 スレッドが停止しました。
+2023-03-13 14:15:19,925 INFO sys_thread.py EdgeApp: Thread edge1 が開始されました。
+2023-03-13 14:15:19,925 INFO sys_thread.py EdgeApp: Thread edge1 が初期化を開始します…
+2023-03-13 14:15:19,937 INFO sys_thread.py EdgeApp.sensor: Thread sensor が開始されました。
+2023-03-13 14:15:19,937 INFO data_collection_edge.py EdgeApp: sensor thread resumed
+2023-03-13 14:15:19,937 INFO sys_thread.py EdgeApp.sensor: Thread sensor が初期化を開始します…
+2023-03-13 14:15:19,938 INFO sys_thread.py EdgeApp.data_process: Thread data_process が開始されました。
+2023-03-13 14:15:19,938 INFO data_collection_edge.py EdgeApp: process thread resumed
+2023-03-13 14:15:19,938 INFO sys_thread.py EdgeApp.sensor: Thread sensor の初期化が完了しました。
+2023-03-13 14:15:19,938 INFO sys_thread.py EdgeApp.data_process: Thread data_process が初期化を開始します…
+2023-03-13 14:15:19,939 INFO sys_thread.py EdgeApp.sync: Thread sync が開始されました。
+2023-03-13 14:15:19,939 INFO data_collection_edge.py EdgeApp: sync thread resumed
+2023-03-13 14:15:19,940 INFO sys_thread.py EdgeApp.data_process: Thread data_process の初期化が完了しました。
+2023-03-13 14:15:19,940 INFO sys_thread.py EdgeApp.sync: Thread sync が初期化を開始します…
+2023-03-13 14:15:19,941 INFO sys_thread.py EdgeApp.database: Thread database が開始されました。
+2023-03-13 14:15:19,941 INFO data_collection_edge.py EdgeApp: db thread resumed
+2023-03-13 14:15:19,942 INFO sys_thread.py EdgeApp.database: Thread database が初期化を開始します…
+2023-03-13 14:15:19,942 INFO sys_thread.py EdgeApp: Thread edge1 の初期化が完了しました。
+2023-03-13 14:15:19,943 INFO tcp_com.py EdgeApp.sync.EdgeTcpServer: TCPサーバーの処理化を行う...
+2023-03-13 14:15:19,945 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 3.542230594503082
+2023-03-13 14:15:19,946 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 14:15:19,946 INFO sys_thread.py EdgeApp.sync: Thread sync の初期化が完了しました。
+2023-03-13 14:15:19,946 INFO process_thread.py EdgeApp.data_process: Processed data: 7.084461189006164
+2023-03-13 14:15:19,959 INFO tcp_com.py EdgeApp.sync.EdgeTcpServer: Server is running on localhost:5001
+2023-03-13 14:15:19,960 INFO sys_thread.py EdgeApp.database: Thread database の初期化が完了しました。
+2023-03-13 14:15:20,948 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 60.38044065991956
+2023-03-13 14:15:20,948 INFO process_thread.py EdgeApp.data_process: Processed data: 120.76088131983911
+2023-03-13 14:15:21,963 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 91.48849740531165
+2023-03-13 14:15:21,964 INFO process_thread.py EdgeApp.data_process: Processed data: 182.9769948106233
+2023-03-13 14:15:22,984 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 33.390898401362975
+2023-03-13 14:15:22,984 INFO process_thread.py EdgeApp.data_process: Processed data: 66.78179680272595
+2023-03-13 14:15:23,986 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 47.015505830494774
+2023-03-13 14:15:23,986 INFO process_thread.py EdgeApp.data_process: Processed data: 94.03101166098955
+2023-03-13 14:15:24,949 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 14:15:24,995 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 88.65420946944457
+2023-03-13 14:15:24,996 INFO process_thread.py EdgeApp.data_process: Processed data: 177.30841893888913
+2023-03-13 14:15:26,000 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 1.640520323487149
+2023-03-13 14:15:26,000 INFO process_thread.py EdgeApp.data_process: Processed data: 3.281040646974298
+2023-03-13 14:15:27,005 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 55.84016285775869
+2023-03-13 14:15:27,005 INFO process_thread.py EdgeApp.data_process: Processed data: 111.68032571551738
+2023-03-13 14:15:28,017 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 19.24289617927819
+2023-03-13 14:15:28,017 INFO process_thread.py EdgeApp.data_process: Processed data: 38.48579235855638
+2023-03-13 14:15:29,024 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 92.57457049733272
+2023-03-13 14:15:29,024 INFO process_thread.py EdgeApp.data_process: Processed data: 185.14914099466543
+2023-03-13 14:15:29,956 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 14:15:30,031 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 48.48161891374645
+2023-03-13 14:15:30,032 INFO process_thread.py EdgeApp.data_process: Processed data: 96.9632378274929
+2023-03-13 14:15:31,043 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 21.193983010001073
+2023-03-13 14:15:31,043 INFO process_thread.py EdgeApp.data_process: Processed data: 42.387966020002146
+2023-03-13 14:15:32,044 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 48.9727291155315
+2023-03-13 14:15:32,044 INFO process_thread.py EdgeApp.data_process: Processed data: 97.945458231063
+2023-03-13 14:15:33,057 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 8.443048042071787
+2023-03-13 14:15:33,057 INFO process_thread.py EdgeApp.data_process: Processed data: 16.886096084143574
+2023-03-13 14:15:34,071 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 93.57765686073847
+2023-03-13 14:15:34,072 INFO process_thread.py EdgeApp.data_process: Processed data: 187.15531372147694
+2023-03-13 14:15:34,964 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 14:15:35,074 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 68.85803857437534
+2023-03-13 14:15:35,075 INFO process_thread.py EdgeApp.data_process: Processed data: 137.71607714875068
+2023-03-13 14:15:36,076 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 96.56459077236762
+2023-03-13 14:15:36,076 INFO process_thread.py EdgeApp.data_process: Processed data: 193.12918154473525
+2023-03-13 14:15:37,083 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 16.439476794442943
+2023-03-13 14:15:37,083 INFO process_thread.py EdgeApp.data_process: Processed data: 32.878953588885885
+2023-03-13 14:15:38,095 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 98.7651152705468
+2023-03-13 14:15:38,096 INFO process_thread.py EdgeApp.data_process: Processed data: 197.5302305410936
+2023-03-13 14:15:39,100 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 6.376465883716998
+2023-03-13 14:15:39,101 INFO process_thread.py EdgeApp.data_process: Processed data: 12.752931767433996
+2023-03-13 14:15:39,970 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 14:15:40,105 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 27.938947366651046
+2023-03-13 14:15:40,106 INFO process_thread.py EdgeApp.data_process: Processed data: 55.87789473330209
+2023-03-13 14:15:41,130 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 15.746364165124739
+2023-03-13 14:15:41,130 INFO process_thread.py EdgeApp.data_process: Processed data: 31.492728330249477
+2023-03-13 14:15:42,146 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 69.22241028106467
+2023-03-13 14:15:42,146 INFO process_thread.py EdgeApp.data_process: Processed data: 138.44482056212934
+2023-03-13 14:15:43,147 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 76.03306509480727
+2023-03-13 14:15:43,147 INFO process_thread.py EdgeApp.data_process: Processed data: 152.06613018961454
+2023-03-13 14:15:44,149 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 5.2346251982368415
+2023-03-13 14:15:44,149 INFO process_thread.py EdgeApp.data_process: Processed data: 10.469250396473683
+2023-03-13 14:15:44,972 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 14:15:45,166 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 69.59262432529371
+2023-03-13 14:15:45,166 INFO process_thread.py EdgeApp.data_process: Processed data: 139.18524865058743
+2023-03-13 14:15:46,181 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 94.81131484909191
+2023-03-13 14:15:46,181 INFO process_thread.py EdgeApp.data_process: Processed data: 189.62262969818383
+2023-03-13 14:15:47,183 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 82.76846884169753
+2023-03-13 14:15:47,183 INFO process_thread.py EdgeApp.data_process: Processed data: 165.53693768339505
+2023-03-13 14:15:48,183 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 47.15914678802364
+2023-03-13 14:15:48,183 INFO process_thread.py EdgeApp.data_process: Processed data: 94.31829357604728
+2023-03-13 14:15:49,184 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 9.639873542809752
+2023-03-13 14:15:49,184 INFO process_thread.py EdgeApp.data_process: Processed data: 19.279747085619505
+2023-03-13 14:15:49,985 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 14:15:50,186 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 79.92786779281879
+2023-03-13 14:15:50,186 INFO process_thread.py EdgeApp.data_process: Processed data: 159.85573558563758
+2023-03-13 14:15:51,201 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 97.38942890677134
+2023-03-13 14:15:51,201 INFO process_thread.py EdgeApp.data_process: Processed data: 194.7788578135427
+2023-03-13 14:15:52,201 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 62.85512911613811
+2023-03-13 14:15:52,201 INFO process_thread.py EdgeApp.data_process: Processed data: 125.71025823227622
+2023-03-13 14:15:53,202 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 90.64329811891282
+2023-03-13 14:15:53,202 INFO process_thread.py EdgeApp.data_process: Processed data: 181.28659623782565
+2023-03-13 14:15:54,209 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 45.39422228292729
+2023-03-13 14:15:54,209 INFO process_thread.py EdgeApp.data_process: Processed data: 90.78844456585458
+2023-03-13 14:15:54,989 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 14:15:55,231 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 32.1755502857105
+2023-03-13 14:15:55,231 INFO process_thread.py EdgeApp.data_process: Processed data: 64.351100571421
+2023-03-13 14:15:56,231 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 16.874435971790934
+2023-03-13 14:15:56,231 INFO process_thread.py EdgeApp.data_process: Processed data: 33.74887194358187
+2023-03-13 14:15:57,237 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 42.28089868191896
+2023-03-13 14:15:57,238 INFO process_thread.py EdgeApp.data_process: Processed data: 84.56179736383793
+2023-03-13 14:15:58,251 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 31.299835825011623
+2023-03-13 14:15:58,251 INFO process_thread.py EdgeApp.data_process: Processed data: 62.59967165002325
+2023-03-13 14:15:59,252 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 93.30206962591572
+2023-03-13 14:15:59,252 INFO process_thread.py EdgeApp.data_process: Processed data: 186.60413925183144
+2023-03-13 14:15:59,994 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 14:16:00,253 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 85.67390219724807
+2023-03-13 14:16:00,253 INFO process_thread.py EdgeApp.data_process: Processed data: 171.34780439449614
+2023-03-13 14:16:01,254 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 91.01622897573256
+2023-03-13 14:16:01,254 INFO process_thread.py EdgeApp.data_process: Processed data: 182.03245795146512
+2023-03-13 14:16:02,255 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 27.143504488732063
+2023-03-13 14:16:02,255 INFO process_thread.py EdgeApp.data_process: Processed data: 54.287008977464126
+2023-03-13 14:16:03,257 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 7.425713963951431
+2023-03-13 14:16:03,257 INFO process_thread.py EdgeApp.data_process: Processed data: 14.851427927902861
+2023-03-13 14:16:04,259 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 9.888661304868007
+2023-03-13 14:16:04,259 INFO process_thread.py EdgeApp.data_process: Processed data: 19.777322609736014
+2023-03-13 14:16:04,996 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 14:16:05,265 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 36.11615495178489
+2023-03-13 14:16:05,265 INFO process_thread.py EdgeApp.data_process: Processed data: 72.23230990356979
+2023-03-13 14:16:06,284 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 84.36216621786505
+2023-03-13 14:16:06,284 INFO process_thread.py EdgeApp.data_process: Processed data: 168.7243324357301
+2023-03-13 14:16:07,293 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 65.10379054236508
+2023-03-13 14:16:07,294 INFO process_thread.py EdgeApp.data_process: Processed data: 130.20758108473015
+2023-03-13 14:16:08,302 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 85.93284522841455
+2023-03-13 14:16:08,303 INFO process_thread.py EdgeApp.data_process: Processed data: 171.8656904568291
+2023-03-13 14:16:09,314 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 19.637034119267717
+2023-03-13 14:16:09,314 INFO process_thread.py EdgeApp.data_process: Processed data: 39.274068238535435
+2023-03-13 14:16:10,008 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 14:16:10,317 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 27.68688961829502
+2023-03-13 14:16:10,317 INFO process_thread.py EdgeApp.data_process: Processed data: 55.37377923659004
+2023-03-13 14:16:11,337 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 14.442421632626324
+2023-03-13 14:16:11,338 INFO process_thread.py EdgeApp.data_process: Processed data: 28.88484326525265
+2023-03-13 14:16:12,356 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 8.016223005509138
+2023-03-13 14:16:12,356 INFO process_thread.py EdgeApp.data_process: Processed data: 16.032446011018276
+2023-03-13 14:16:13,358 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 34.025306233497524
+2023-03-13 14:16:13,358 INFO process_thread.py EdgeApp.data_process: Processed data: 68.05061246699505
+2023-03-13 14:16:14,359 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 88.04753765973243
+2023-03-13 14:16:14,359 INFO process_thread.py EdgeApp.data_process: Processed data: 176.09507531946485
+2023-03-13 14:16:15,027 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 14:16:15,368 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 99.61809726370628
+2023-03-13 14:16:15,369 INFO process_thread.py EdgeApp.data_process: Processed data: 199.23619452741255
+2023-03-13 14:16:16,377 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 69.11304528418636
+2023-03-13 14:16:16,377 INFO process_thread.py EdgeApp.data_process: Processed data: 138.2260905683727
+2023-03-13 14:16:17,379 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 69.38874812827183
+2023-03-13 14:16:17,379 INFO process_thread.py EdgeApp.data_process: Processed data: 138.77749625654366
+2023-03-13 14:16:18,381 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 4.90592593580621
+2023-03-13 14:16:18,381 INFO process_thread.py EdgeApp.data_process: Processed data: 9.81185187161242
+2023-03-13 14:16:19,382 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 41.760899204075585
+2023-03-13 14:16:19,382 INFO process_thread.py EdgeApp.data_process: Processed data: 83.52179840815117
+2023-03-13 14:16:20,030 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 14:16:20,395 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 27.167845019549286
+2023-03-13 14:16:20,395 INFO process_thread.py EdgeApp.data_process: Processed data: 54.33569003909857
+2023-03-13 14:16:21,401 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 72.00598109240798
+2023-03-13 14:16:21,401 INFO process_thread.py EdgeApp.data_process: Processed data: 144.01196218481596
+2023-03-13 14:16:22,403 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 0.6231455293195465
+2023-03-13 14:16:22,403 INFO process_thread.py EdgeApp.data_process: Processed data: 1.246291058639093
+2023-03-13 14:16:23,404 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 25.514445203223136
+2023-03-13 14:16:23,404 INFO process_thread.py EdgeApp.data_process: Processed data: 51.02889040644627
+2023-03-13 14:16:24,405 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 54.72363584159993
+2023-03-13 14:16:24,405 INFO process_thread.py EdgeApp.data_process: Processed data: 109.44727168319986
+2023-03-13 14:16:25,037 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 14:16:25,406 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 96.77704153844937
+2023-03-13 14:16:25,406 INFO process_thread.py EdgeApp.data_process: Processed data: 193.55408307689873
+2023-03-13 14:16:26,417 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 82.46209702521597
+2023-03-13 14:16:26,417 INFO process_thread.py EdgeApp.data_process: Processed data: 164.92419405043194
+2023-03-13 14:16:27,425 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 45.77728606863087
+2023-03-13 14:16:27,425 INFO process_thread.py EdgeApp.data_process: Processed data: 91.55457213726174
+2023-03-13 14:16:28,426 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 44.4181313527114
+2023-03-13 14:16:28,426 INFO process_thread.py EdgeApp.data_process: Processed data: 88.8362627054228
+2023-03-13 14:16:29,428 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 92.65037099697949
+2023-03-13 14:16:29,428 INFO process_thread.py EdgeApp.data_process: Processed data: 185.30074199395898
+2023-03-13 14:16:30,045 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 14:16:30,430 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 83.72483403181307
+2023-03-13 14:16:30,430 INFO process_thread.py EdgeApp.data_process: Processed data: 167.44966806362615
+2023-03-13 14:16:31,431 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 1.8825457878513197
+2023-03-13 14:16:31,431 INFO process_thread.py EdgeApp.data_process: Processed data: 3.7650915757026393
+2023-03-13 14:16:32,433 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 49.363948769171095
+2023-03-13 14:16:32,433 INFO process_thread.py EdgeApp.data_process: Processed data: 98.72789753834219
+2023-03-13 14:16:33,435 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 88.31502236819134
+2023-03-13 14:16:33,435 INFO process_thread.py EdgeApp.data_process: Processed data: 176.63004473638267
+2023-03-13 14:16:34,436 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 66.20025309066281
+2023-03-13 14:16:34,436 INFO process_thread.py EdgeApp.data_process: Processed data: 132.40050618132562
+2023-03-13 14:16:35,053 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 14:16:35,440 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 24.460847776201234
+2023-03-13 14:16:35,440 INFO process_thread.py EdgeApp.data_process: Processed data: 48.92169555240247
+2023-03-13 14:16:36,442 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 47.229741838897276
+2023-03-13 14:16:36,442 INFO process_thread.py EdgeApp.data_process: Processed data: 94.45948367779455
+2023-03-13 14:16:37,442 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 85.3572934678512
+2023-03-13 14:16:37,442 INFO process_thread.py EdgeApp.data_process: Processed data: 170.7145869357024
+2023-03-13 14:16:38,456 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 50.782210204750655
+2023-03-13 14:16:38,457 INFO process_thread.py EdgeApp.data_process: Processed data: 101.56442040950131
+2023-03-13 14:16:39,462 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 16.7204211724195
+2023-03-13 14:16:39,462 INFO process_thread.py EdgeApp.data_process: Processed data: 33.440842344839
+2023-03-13 14:16:40,063 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 14:16:40,477 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 14.057358392464359
+2023-03-13 14:16:40,477 INFO process_thread.py EdgeApp.data_process: Processed data: 28.114716784928717
+2023-03-13 14:16:41,481 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 93.668613954539
+2023-03-13 14:16:41,481 INFO process_thread.py EdgeApp.data_process: Processed data: 187.337227909078
+2023-03-13 14:16:42,483 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 73.06198037258991
+2023-03-13 14:16:42,483 INFO process_thread.py EdgeApp.data_process: Processed data: 146.12396074517983
+2023-03-13 14:16:43,508 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 85.60964187346582
+2023-03-13 14:16:43,508 INFO process_thread.py EdgeApp.data_process: Processed data: 171.21928374693164
+2023-03-13 14:16:44,508 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 84.66559009542203
+2023-03-13 14:16:44,508 INFO process_thread.py EdgeApp.data_process: Processed data: 169.33118019084407
+2023-03-13 14:16:45,071 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 14:16:45,516 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 76.86166615843106
+2023-03-13 14:16:45,516 INFO process_thread.py EdgeApp.data_process: Processed data: 153.72333231686213
+2023-03-13 14:16:46,526 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 26.558630012319696
+2023-03-13 14:16:46,527 INFO process_thread.py EdgeApp.data_process: Processed data: 53.11726002463939
+2023-03-13 14:16:47,529 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 4.432542455819533
+2023-03-13 14:16:47,529 INFO process_thread.py EdgeApp.data_process: Processed data: 8.865084911639066
+2023-03-13 14:16:48,529 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 49.46353908745353
+2023-03-13 14:16:48,529 INFO process_thread.py EdgeApp.data_process: Processed data: 98.92707817490707
+2023-03-13 14:16:49,531 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 90.10259506634056
+2023-03-13 14:16:49,531 INFO process_thread.py EdgeApp.data_process: Processed data: 180.2051901326811
+2023-03-13 14:16:50,078 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 14:16:50,532 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 41.012367882582865
+2023-03-13 14:16:50,532 INFO process_thread.py EdgeApp.data_process: Processed data: 82.02473576516573
+2023-03-13 14:16:51,533 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 82.3544500663953
+2023-03-13 14:16:51,533 INFO process_thread.py EdgeApp.data_process: Processed data: 164.7089001327906
+2023-03-13 14:16:52,533 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 2.109217542966746
+2023-03-13 14:16:52,533 INFO process_thread.py EdgeApp.data_process: Processed data: 4.218435085933492
+2023-03-13 14:16:53,533 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 90.71530331591474
+2023-03-13 14:16:53,533 INFO process_thread.py EdgeApp.data_process: Processed data: 181.43060663182948
+2023-03-13 14:16:54,545 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 88.4877233961258
+2023-03-13 14:16:54,546 INFO process_thread.py EdgeApp.data_process: Processed data: 176.9754467922516
+2023-03-13 14:16:55,098 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 14:16:55,548 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 3.10167163495898
+2023-03-13 14:16:55,549 INFO process_thread.py EdgeApp.data_process: Processed data: 6.20334326991796
+2023-03-13 14:16:56,557 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 48.768300496693854
+2023-03-13 14:16:56,557 INFO process_thread.py EdgeApp.data_process: Processed data: 97.53660099338771
+2023-03-13 14:16:57,566 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 30.798026735974215
+2023-03-13 14:16:57,566 INFO process_thread.py EdgeApp.data_process: Processed data: 61.59605347194843
+2023-03-13 14:16:58,567 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 29.149205349481676
+2023-03-13 14:16:58,567 INFO process_thread.py EdgeApp.data_process: Processed data: 58.29841069896335
+2023-03-13 14:16:59,574 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 86.61909091062186
+2023-03-13 14:16:59,574 INFO process_thread.py EdgeApp.data_process: Processed data: 173.23818182124373
+2023-03-13 14:17:00,113 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 14:17:00,585 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 78.30457537700688
+2023-03-13 14:17:00,586 INFO process_thread.py EdgeApp.data_process: Processed data: 156.60915075401377
+2023-03-13 14:17:01,592 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 10.02803480798502
+2023-03-13 14:17:01,592 INFO process_thread.py EdgeApp.data_process: Processed data: 20.05606961597004
+2023-03-13 14:17:02,599 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 76.99842162169486
+2023-03-13 14:17:02,599 INFO process_thread.py EdgeApp.data_process: Processed data: 153.99684324338972
+2023-03-13 14:17:03,612 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 40.58271712853626
+2023-03-13 14:17:03,612 INFO process_thread.py EdgeApp.data_process: Processed data: 81.16543425707252
+2023-03-13 14:17:04,624 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 54.05429900460852
+2023-03-13 14:17:04,624 INFO process_thread.py EdgeApp.data_process: Processed data: 108.10859800921703
+2023-03-13 14:17:05,116 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 14:17:05,634 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 20.094529621908976
+2023-03-13 14:17:05,636 INFO process_thread.py EdgeApp.data_process: Processed data: 40.18905924381795
+2023-03-13 14:17:06,639 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 94.38611360773412
+2023-03-13 14:17:06,639 INFO process_thread.py EdgeApp.data_process: Processed data: 188.77222721546823
+2023-03-13 14:17:07,643 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 38.72388529682338
+2023-03-13 14:17:07,643 INFO process_thread.py EdgeApp.data_process: Processed data: 77.44777059364677
+2023-03-13 14:17:08,650 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 64.3593073176703
+2023-03-13 14:17:08,650 INFO process_thread.py EdgeApp.data_process: Processed data: 128.7186146353406
+2023-03-13 14:17:09,664 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 67.86716256542469
+2023-03-13 14:17:09,664 INFO process_thread.py EdgeApp.data_process: Processed data: 135.73432513084938
+2023-03-13 14:17:10,130 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 14:17:10,670 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 40.67733039399628
+2023-03-13 14:17:10,671 INFO process_thread.py EdgeApp.data_process: Processed data: 81.35466078799256
+2023-03-13 14:17:11,676 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 8.587426854541347
+2023-03-13 14:17:11,676 INFO process_thread.py EdgeApp.data_process: Processed data: 17.174853709082694
+2023-03-13 14:17:12,677 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 58.750158719209566
+2023-03-13 14:17:12,677 INFO process_thread.py EdgeApp.data_process: Processed data: 117.50031743841913
+2023-03-13 14:17:13,688 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 82.00247702603573
+2023-03-13 14:17:13,688 INFO process_thread.py EdgeApp.data_process: Processed data: 164.00495405207147
+2023-03-13 14:17:14,698 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 66.89890354468288
+2023-03-13 14:17:14,698 INFO process_thread.py EdgeApp.data_process: Processed data: 133.79780708936576
+2023-03-13 14:17:15,138 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 14:17:15,703 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 49.399318843333795
+2023-03-13 14:17:15,703 INFO process_thread.py EdgeApp.data_process: Processed data: 98.79863768666759
+2023-03-13 14:17:16,712 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 2.5266685552932655
+2023-03-13 14:17:16,712 INFO process_thread.py EdgeApp.data_process: Processed data: 5.053337110586531
+2023-03-13 14:17:17,713 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 4.269147907828785
+2023-03-13 14:17:17,713 INFO process_thread.py EdgeApp.data_process: Processed data: 8.53829581565757
+2023-03-13 14:17:18,736 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 79.0699643909407
+2023-03-13 14:17:18,736 INFO process_thread.py EdgeApp.data_process: Processed data: 158.1399287818814
+2023-03-13 14:17:19,738 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 1.1586685469090252
+2023-03-13 14:17:19,738 INFO process_thread.py EdgeApp.data_process: Processed data: 2.3173370938180504
+2023-03-13 14:17:20,139 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 14:17:20,740 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 32.032608816185856
+2023-03-13 14:17:20,741 INFO process_thread.py EdgeApp.data_process: Processed data: 64.06521763237171
+2023-03-13 14:17:21,762 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 34.70943550827958
+2023-03-13 14:17:21,762 INFO process_thread.py EdgeApp.data_process: Processed data: 69.41887101655917
+2023-03-13 14:17:22,775 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 66.64281065011657
+2023-03-13 14:17:22,775 INFO process_thread.py EdgeApp.data_process: Processed data: 133.28562130023315
+2023-03-13 14:17:23,776 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 44.05518399898867
+2023-03-13 14:17:23,776 INFO process_thread.py EdgeApp.data_process: Processed data: 88.11036799797733
+2023-03-13 14:17:24,782 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 84.36984797701031
+2023-03-13 14:17:24,782 INFO process_thread.py EdgeApp.data_process: Processed data: 168.73969595402062
+2023-03-13 14:17:25,146 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 14:17:25,782 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 97.28297184882318
+2023-03-13 14:17:25,783 INFO process_thread.py EdgeApp.data_process: Processed data: 194.56594369764636
+2023-03-13 14:17:26,797 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 27.567209654383042
+2023-03-13 14:17:26,797 INFO process_thread.py EdgeApp.data_process: Processed data: 55.134419308766084
+2023-03-13 14:17:27,799 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 91.08524799249463
+2023-03-13 14:17:27,799 INFO process_thread.py EdgeApp.data_process: Processed data: 182.17049598498926
+2023-03-13 14:17:28,802 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 58.14527492078063
+2023-03-13 14:17:28,802 INFO process_thread.py EdgeApp.data_process: Processed data: 116.29054984156126
+2023-03-13 14:17:29,805 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 51.16419751674365
+2023-03-13 14:17:29,805 INFO process_thread.py EdgeApp.data_process: Processed data: 102.3283950334873
+2023-03-13 14:17:30,159 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 14:17:30,806 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 17.70546064113342
+2023-03-13 14:17:30,806 INFO process_thread.py EdgeApp.data_process: Processed data: 35.41092128226684
+2023-03-13 14:17:31,820 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 28.909373048344335
+2023-03-13 14:17:31,821 INFO process_thread.py EdgeApp.data_process: Processed data: 57.81874609668867
+2023-03-13 14:17:32,827 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 90.69665422922765
+2023-03-13 14:17:32,827 INFO process_thread.py EdgeApp.data_process: Processed data: 181.3933084584553
+2023-03-13 14:17:33,838 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 54.76375528370364
+2023-03-13 14:17:33,838 INFO process_thread.py EdgeApp.data_process: Processed data: 109.52751056740728
+2023-03-13 14:17:34,839 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 43.79340074852749
+2023-03-13 14:17:34,839 INFO process_thread.py EdgeApp.data_process: Processed data: 87.58680149705498
+2023-03-13 14:17:35,169 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 14:17:35,840 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 68.13829645922175
+2023-03-13 14:17:35,840 INFO process_thread.py EdgeApp.data_process: Processed data: 136.2765929184435
+2023-03-13 14:17:36,852 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 64.1860442072415
+2023-03-13 14:17:36,853 INFO process_thread.py EdgeApp.data_process: Processed data: 128.372088414483
+2023-03-13 14:17:37,870 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 23.761509545917658
+2023-03-13 14:17:37,870 INFO process_thread.py EdgeApp.data_process: Processed data: 47.523019091835316
+2023-03-13 14:17:38,873 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 58.80440817300684
+2023-03-13 14:17:38,873 INFO process_thread.py EdgeApp.data_process: Processed data: 117.60881634601368
+2023-03-13 14:17:39,874 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 68.70500876870788
+2023-03-13 14:17:39,874 INFO process_thread.py EdgeApp.data_process: Processed data: 137.41001753741577
+2023-03-13 14:17:40,174 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 14:17:40,878 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 3.4055599090026867
+2023-03-13 14:17:40,878 INFO process_thread.py EdgeApp.data_process: Processed data: 6.811119818005373
+2023-03-13 14:17:41,892 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 40.53994101415196
+2023-03-13 14:17:41,893 INFO process_thread.py EdgeApp.data_process: Processed data: 81.07988202830391
+2023-03-13 14:17:42,905 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 13.433497133808958
+2023-03-13 14:17:42,906 INFO process_thread.py EdgeApp.data_process: Processed data: 26.866994267617915
+2023-03-13 14:17:43,909 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 61.586384983401985
+2023-03-13 14:17:43,909 INFO process_thread.py EdgeApp.data_process: Processed data: 123.17276996680397
+2023-03-13 14:17:44,931 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 45.66608492996069
+2023-03-13 14:17:44,932 INFO process_thread.py EdgeApp.data_process: Processed data: 91.33216985992138
+2023-03-13 14:17:45,178 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 14:17:45,941 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 27.33672511484142
+2023-03-13 14:17:45,942 INFO process_thread.py EdgeApp.data_process: Processed data: 54.67345022968284
+2023-03-13 14:17:46,942 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 82.67305501442988
+2023-03-13 14:17:46,943 INFO process_thread.py EdgeApp.data_process: Processed data: 165.34611002885975
+2023-03-13 14:17:47,957 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 25.11996279133709
+2023-03-13 14:17:47,958 INFO process_thread.py EdgeApp.data_process: Processed data: 50.23992558267418
+2023-03-13 14:17:48,968 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 79.93127812000145
+2023-03-13 14:17:48,968 INFO process_thread.py EdgeApp.data_process: Processed data: 159.8625562400029
+2023-03-13 14:17:49,972 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 34.33541053458157
+2023-03-13 14:17:49,972 INFO process_thread.py EdgeApp.data_process: Processed data: 68.67082106916314
+2023-03-13 14:17:50,187 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 14:17:50,981 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 47.79172618076625
+2023-03-13 14:17:50,981 INFO process_thread.py EdgeApp.data_process: Processed data: 95.5834523615325
+2023-03-13 14:17:51,992 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 96.57471194506122
+2023-03-13 14:17:51,992 INFO process_thread.py EdgeApp.data_process: Processed data: 193.14942389012245
+2023-03-13 14:17:53,007 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 35.689145356338244
+2023-03-13 14:17:53,007 INFO process_thread.py EdgeApp.data_process: Processed data: 71.37829071267649
+2023-03-13 14:17:54,023 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 36.15066619888374
+2023-03-13 14:17:54,024 INFO process_thread.py EdgeApp.data_process: Processed data: 72.30133239776748
+2023-03-13 14:17:55,033 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 53.3085722823756
+2023-03-13 14:17:55,034 INFO process_thread.py EdgeApp.data_process: Processed data: 106.6171445647512
+2023-03-13 14:17:55,190 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 14:17:56,033 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 15.379965186664569
+2023-03-13 14:17:56,034 INFO process_thread.py EdgeApp.data_process: Processed data: 30.759930373329137
+2023-03-13 14:17:57,034 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 89.917284760502
+2023-03-13 14:17:57,034 INFO process_thread.py EdgeApp.data_process: Processed data: 179.834569521004
+2023-03-13 14:17:58,042 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 39.6842076335969
+2023-03-13 14:17:58,043 INFO process_thread.py EdgeApp.data_process: Processed data: 79.3684152671938
+2023-03-13 14:17:59,044 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 85.76162697204612
+2023-03-13 14:17:59,044 INFO process_thread.py EdgeApp.data_process: Processed data: 171.52325394409223
+2023-03-13 14:18:00,058 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 73.24667618670263
+2023-03-13 14:18:00,058 INFO process_thread.py EdgeApp.data_process: Processed data: 146.49335237340526
+2023-03-13 14:18:00,195 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 14:18:01,061 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 11.742876395745904
+2023-03-13 14:18:01,061 INFO process_thread.py EdgeApp.data_process: Processed data: 23.48575279149181
+2023-03-13 14:18:02,064 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 25.39550041744597
+2023-03-13 14:18:02,064 INFO process_thread.py EdgeApp.data_process: Processed data: 50.79100083489194
+2023-03-13 14:18:03,065 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 31.878957483713634
+2023-03-13 14:18:03,065 INFO process_thread.py EdgeApp.data_process: Processed data: 63.75791496742727
+2023-03-13 14:18:04,071 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 6.305843074258566
+2023-03-13 14:18:04,071 INFO process_thread.py EdgeApp.data_process: Processed data: 12.611686148517132
+2023-03-13 14:18:05,083 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 78.2351206991077
+2023-03-13 14:18:05,083 INFO process_thread.py EdgeApp.data_process: Processed data: 156.4702413982154
+2023-03-13 14:18:05,214 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 14:18:06,085 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 67.88831315209819
+2023-03-13 14:18:06,085 INFO process_thread.py EdgeApp.data_process: Processed data: 135.77662630419638
+2023-03-13 14:18:07,108 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 57.97118511254071
+2023-03-13 14:18:07,108 INFO process_thread.py EdgeApp.data_process: Processed data: 115.94237022508142
+2023-03-13 14:18:08,110 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 57.89061221542898
+2023-03-13 14:18:08,110 INFO process_thread.py EdgeApp.data_process: Processed data: 115.78122443085796
+2023-03-13 14:18:09,126 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 73.19211215728278
+2023-03-13 14:18:09,126 INFO process_thread.py EdgeApp.data_process: Processed data: 146.38422431456556
+2023-03-13 14:18:10,136 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 46.0911861912296
+2023-03-13 14:18:10,137 INFO process_thread.py EdgeApp.data_process: Processed data: 92.1823723824592
+2023-03-13 14:18:10,227 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 14:18:11,151 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 34.75057416262748
+2023-03-13 14:18:11,151 INFO process_thread.py EdgeApp.data_process: Processed data: 69.50114832525496
+2023-03-13 14:18:12,157 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 4.611738794641429
+2023-03-13 14:18:12,157 INFO process_thread.py EdgeApp.data_process: Processed data: 9.223477589282858
+2023-03-13 14:18:13,159 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 67.58783728241166
+2023-03-13 14:18:13,159 INFO process_thread.py EdgeApp.data_process: Processed data: 135.1756745648233
+2023-03-13 14:18:14,170 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 21.957432747253115
+2023-03-13 14:18:14,170 INFO process_thread.py EdgeApp.data_process: Processed data: 43.91486549450623
+2023-03-13 14:18:15,175 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 28.750677964455562
+2023-03-13 14:18:15,175 INFO process_thread.py EdgeApp.data_process: Processed data: 57.501355928911124
+2023-03-13 14:18:15,237 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 14:18:16,175 INFO data_collection_edge.py EdgeApp: Thread edge1 send shutdown signal to other threads...
+2023-03-13 14:18:16,175 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 99.66558053791007
+2023-03-13 14:18:16,176 INFO sensor_thread.py EdgeApp.sensor: Thread sensor cleaned up
+2023-03-13 14:18:16,176 INFO process_thread.py EdgeApp.data_process: Processed data: 199.33116107582015
+2023-03-13 14:18:16,176 INFO sys_thread.py EdgeApp.sensor: Thread sensor のクリーンアップが完了しました。
+2023-03-13 14:18:16,177 INFO sys_thread.py EdgeApp.sensor: Thread sensor が停止しました。
+2023-03-13 14:18:16,178 INFO process_thread.py EdgeApp.data_process: Thread data_process cleaned up
+2023-03-13 14:18:16,179 INFO sys_thread.py EdgeApp.data_process: Thread data_process のクリーンアップが完了しました。
+2023-03-13 14:18:16,179 INFO sys_thread.py EdgeApp.data_process: Thread data_process が停止しました。
+2023-03-13 14:18:16,180 INFO tcp_com.py EdgeApp.sync.EdgeTcpServer: Stopping server...
+2023-03-13 14:18:16,181 INFO sync_thread.py EdgeApp.sync: Thread sync cleaned up
+2023-03-13 14:18:16,181 ERROR tcp_com.py EdgeApp.sync.EdgeTcpServer: Server could not be started or get terminated -[WinError 10038] An operation was attempted on something that is not a socket
+2023-03-13 14:18:16,182 INFO sys_thread.py EdgeApp.sync: Thread sync のクリーンアップが完了しました。
+2023-03-13 14:18:16,182 WARNING tcp_com.py EdgeApp.sync.EdgeTcpServer: Server Stopped !
+2023-03-13 14:18:16,182 INFO sys_thread.py EdgeApp.sync: Thread sync が停止しました。
+2023-03-13 14:18:16,190 INFO db_thread.py EdgeApp.database: Thread database cleaned up
+2023-03-13 14:18:16,191 INFO sys_thread.py EdgeApp.database: Thread database のクリーンアップが完了しました。
+2023-03-13 14:18:16,192 INFO sys_thread.py EdgeApp.database: Thread database が停止しました。
+2023-03-13 14:18:16,192 INFO data_collection_edge.py EdgeApp: Program edge1 exited...
+2023-03-13 14:18:16,193 INFO sys_thread.py EdgeApp: Thread edge1 のクリーンアップが完了しました。
+2023-03-13 14:18:16,193 INFO sys_thread.py EdgeApp: Thread edge1 が停止しました。
+2023-03-13 14:23:32,944 INFO sys_thread.py EdgeApp: MainThread edge1 が開始されました。
+2023-03-13 14:23:32,944 INFO sys_thread.py EdgeApp: MainThread edge1 が初期化を開始します…
+2023-03-13 14:23:32,949 INFO sys_thread.py EdgeApp.sensor: Thread sensor が開始されました。
+2023-03-13 14:23:32,949 INFO data_collection_edge.py EdgeApp: sensor thread resumed
+2023-03-13 14:23:32,949 INFO sys_thread.py EdgeApp.sensor: Thread sensor が初期化を開始します…
+2023-03-13 14:23:32,950 INFO sys_thread.py EdgeApp.data_process: Thread data_process が開始されました。
+2023-03-13 14:23:32,950 INFO data_collection_edge.py EdgeApp: process thread resumed
+2023-03-13 14:23:32,950 INFO sys_thread.py EdgeApp.sensor: Thread sensor の初期化が完了しました。
+2023-03-13 14:23:32,951 INFO sys_thread.py EdgeApp.data_process: Thread data_process が初期化を開始します…
+2023-03-13 14:23:32,951 INFO sys_thread.py EdgeApp.sync: Thread sync が開始されました。
+2023-03-13 14:23:32,952 INFO data_collection_edge.py EdgeApp: sync thread resumed
+2023-03-13 14:23:32,952 INFO sys_thread.py EdgeApp.data_process: Thread data_process の初期化が完了しました。
+2023-03-13 14:23:32,953 INFO sys_thread.py EdgeApp.sync: Thread sync が初期化を開始します…
+2023-03-13 14:23:32,954 INFO sys_thread.py EdgeApp.database: Thread database が開始されました。
+2023-03-13 14:23:32,954 INFO data_collection_edge.py EdgeApp: db thread resumed
+2023-03-13 14:23:32,955 INFO sys_thread.py EdgeApp.database: Thread database が初期化を開始します…
+2023-03-13 14:23:32,955 INFO sys_thread.py EdgeApp: MainThread edge1 の初期化が完了しました。
+2023-03-13 14:23:32,957 INFO tcp_com.py EdgeApp.sync.EdgeTcpServer: TCPサーバーの処理化を行う...
+2023-03-13 14:23:32,957 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 48.760848053474014
+2023-03-13 14:23:32,959 INFO process_thread.py EdgeApp.data_process: Processed data: 97.52169610694803
+2023-03-13 14:23:32,964 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 14:23:32,964 INFO sys_thread.py EdgeApp.sync: Thread sync の初期化が完了しました。
+2023-03-13 14:23:32,971 INFO tcp_com.py EdgeApp.sync.EdgeTcpServer: Server is running on localhost:5001
+2023-03-13 14:23:32,973 INFO sys_thread.py EdgeApp.database: Thread database の初期化が完了しました。
+2023-03-13 14:23:33,961 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 71.3306583468024
+2023-03-13 14:23:33,961 INFO process_thread.py EdgeApp.data_process: Processed data: 142.6613166936048
+2023-03-13 14:23:34,969 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 25.645675748874208
+2023-03-13 14:23:34,969 INFO process_thread.py EdgeApp.data_process: Processed data: 51.291351497748416
+2023-03-13 14:23:35,978 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 58.922112593282584
+2023-03-13 14:23:35,978 INFO process_thread.py EdgeApp.data_process: Processed data: 117.84422518656517
+2023-03-13 14:23:36,985 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 54.24501054034
+2023-03-13 14:23:36,985 INFO process_thread.py EdgeApp.data_process: Processed data: 108.49002108068
+2023-03-13 14:23:37,965 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 14:23:37,994 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 83.9267680988969
+2023-03-13 14:23:37,994 INFO process_thread.py EdgeApp.data_process: Processed data: 167.8535361977938
+2023-03-13 14:23:38,997 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 19.062594784825425
+2023-03-13 14:23:38,997 INFO process_thread.py EdgeApp.data_process: Processed data: 38.12518956965085
+2023-03-13 14:23:40,000 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 68.76910678391711
+2023-03-13 14:23:40,000 INFO process_thread.py EdgeApp.data_process: Processed data: 137.53821356783422
+2023-03-13 14:23:41,001 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 95.94749385305387
+2023-03-13 14:23:41,001 INFO process_thread.py EdgeApp.data_process: Processed data: 191.89498770610774
+2023-03-13 14:23:42,015 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 32.22540397978781
+2023-03-13 14:23:42,016 INFO process_thread.py EdgeApp.data_process: Processed data: 64.45080795957561
+2023-03-13 14:23:42,973 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 14:23:43,023 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 29.284331481078706
+2023-03-13 14:23:43,024 INFO process_thread.py EdgeApp.data_process: Processed data: 58.56866296215741
+2023-03-13 14:23:44,023 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 91.3358425995858
+2023-03-13 14:23:44,023 INFO process_thread.py EdgeApp.data_process: Processed data: 182.6716851991716
+2023-03-13 14:23:45,028 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 66.52824400867851
+2023-03-13 14:23:45,028 INFO process_thread.py EdgeApp.data_process: Processed data: 133.05648801735703
+2023-03-13 14:23:46,043 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 86.15202706226364
+2023-03-13 14:23:46,043 INFO process_thread.py EdgeApp.data_process: Processed data: 172.30405412452728
+2023-03-13 14:23:47,047 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 78.3398601804444
+2023-03-13 14:23:47,047 INFO process_thread.py EdgeApp.data_process: Processed data: 156.6797203608888
+2023-03-13 14:23:47,979 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 14:23:48,055 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 77.25585423710977
+2023-03-13 14:23:48,055 INFO process_thread.py EdgeApp.data_process: Processed data: 154.51170847421955
+2023-03-13 14:23:49,063 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 6.437317457934655
+2023-03-13 14:23:49,063 INFO process_thread.py EdgeApp.data_process: Processed data: 12.87463491586931
+2023-03-13 14:23:50,064 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 69.4643597823862
+2023-03-13 14:23:50,064 INFO process_thread.py EdgeApp.data_process: Processed data: 138.9287195647724
+2023-03-13 14:23:51,069 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 25.933114933486124
+2023-03-13 14:23:51,070 INFO process_thread.py EdgeApp.data_process: Processed data: 51.86622986697225
+2023-03-13 14:23:52,076 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 80.35376057365993
+2023-03-13 14:23:52,076 INFO process_thread.py EdgeApp.data_process: Processed data: 160.70752114731985
+2023-03-13 14:23:52,993 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 14:23:53,087 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 8.781790196384886
+2023-03-13 14:23:53,088 INFO process_thread.py EdgeApp.data_process: Processed data: 17.563580392769772
+2023-03-13 14:23:54,103 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 25.93516020447597
+2023-03-13 14:23:54,103 INFO process_thread.py EdgeApp.data_process: Processed data: 51.87032040895194
+2023-03-13 14:23:55,103 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 50.76888412420152
+2023-03-13 14:23:55,103 INFO process_thread.py EdgeApp.data_process: Processed data: 101.53776824840304
+2023-03-13 14:23:56,118 INFO data_collection_edge.py EdgeApp: Thread edge1 send shutdown signal to other threads...
+2023-03-13 14:23:56,118 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 75.17249357354213
+2023-03-13 14:23:56,120 INFO sensor_thread.py EdgeApp.sensor: Thread sensor cleaned up
+2023-03-13 14:23:56,120 INFO process_thread.py EdgeApp.data_process: Processed data: 150.34498714708425
+2023-03-13 14:23:56,120 INFO sys_thread.py EdgeApp.sensor: Thread sensor のクリーンアップが完了しました。
+2023-03-13 14:23:56,121 INFO sys_thread.py EdgeApp.sensor: Thread sensor が停止しました。
+2023-03-13 14:23:56,122 INFO process_thread.py EdgeApp.data_process: Thread data_process cleaned up
+2023-03-13 14:23:56,123 INFO sys_thread.py EdgeApp.data_process: Thread data_process のクリーンアップが完了しました。
+2023-03-13 14:23:56,123 INFO sys_thread.py EdgeApp.data_process: Thread data_process が停止しました。
+2023-03-13 14:23:56,124 INFO tcp_com.py EdgeApp.sync.EdgeTcpServer: Stopping server...
+2023-03-13 14:23:56,125 INFO sync_thread.py EdgeApp.sync: Thread sync cleaned up
+2023-03-13 14:23:56,125 ERROR tcp_com.py EdgeApp.sync.EdgeTcpServer: Server could not be started or get terminated -[WinError 10038] An operation was attempted on something that is not a socket
+2023-03-13 14:23:56,125 INFO sys_thread.py EdgeApp.sync: Thread sync のクリーンアップが完了しました。
+2023-03-13 14:23:56,125 WARNING tcp_com.py EdgeApp.sync.EdgeTcpServer: Server Stopped !
+2023-03-13 14:23:56,125 INFO sys_thread.py EdgeApp.sync: Thread sync が停止しました。
+2023-03-13 14:23:56,143 INFO db_thread.py EdgeApp.database: Thread database cleaned up
+2023-03-13 14:23:56,144 INFO sys_thread.py EdgeApp.database: Thread database のクリーンアップが完了しました。
+2023-03-13 14:23:56,144 INFO sys_thread.py EdgeApp.database: Thread database が停止しました。
+2023-03-13 14:23:56,145 INFO data_collection_edge.py EdgeApp: Program edge1 exited...
+2023-03-13 14:23:56,145 INFO sys_thread.py EdgeApp: MainThread edge1 のクリーンアップが完了しました。
+2023-03-13 14:23:56,145 INFO sys_thread.py EdgeApp: MainThread edge1 が停止しました。
+2023-03-13 14:28:51,834 INFO sys_thread.py EdgeApp: MainThread edge1 が開始されました。
+2023-03-13 14:28:51,834 INFO sys_thread.py EdgeApp: MainThread edge1 が初期化を開始します…
+2023-03-13 14:28:51,843 INFO sys_thread.py EdgeApp.sensor: Thread sensor が開始されました。
+2023-03-13 14:28:51,843 INFO data_collection_edge.py EdgeApp: sensor thread resumed
+2023-03-13 14:28:51,843 INFO sys_thread.py EdgeApp.sensor: Thread sensor が初期化を開始します…
+2023-03-13 14:28:51,844 INFO sys_thread.py EdgeApp.data_process: Thread data_process が開始されました。
+2023-03-13 14:28:51,844 INFO data_collection_edge.py EdgeApp: process thread resumed
+2023-03-13 14:28:51,844 INFO sys_thread.py EdgeApp.sensor: Thread sensor の初期化が完了しました。
+2023-03-13 14:28:51,844 INFO sys_thread.py EdgeApp.data_process: Thread data_process が初期化を開始します…
+2023-03-13 14:28:51,845 INFO sys_thread.py EdgeApp.sync: Thread sync が開始されました。
+2023-03-13 14:28:51,845 INFO data_collection_edge.py EdgeApp: sync thread resumed
+2023-03-13 14:28:51,846 INFO sys_thread.py EdgeApp.data_process: Thread data_process の初期化が完了しました。
+2023-03-13 14:28:51,846 INFO sys_thread.py EdgeApp.sync: Thread sync が初期化を開始します…
+2023-03-13 14:28:51,847 INFO sys_thread.py EdgeApp.database: Thread database が開始されました。
+2023-03-13 14:28:51,847 INFO data_collection_edge.py EdgeApp: db thread resumed
+2023-03-13 14:28:51,848 INFO sys_thread.py EdgeApp.database: Thread database が初期化を開始します…
+2023-03-13 14:28:51,849 INFO sys_thread.py EdgeApp: MainThread edge1 の初期化が完了しました。
+2023-03-13 14:28:51,850 INFO tcp_com.py EdgeApp.sync.EdgeTcpServer: TCPサーバーの処理化を行う...
+2023-03-13 14:28:51,851 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 98.68669999277965
+2023-03-13 14:28:51,852 INFO process_thread.py EdgeApp.data_process: Processed data: 197.3733999855593
+2023-03-13 14:28:51,857 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 14:28:51,857 INFO sys_thread.py EdgeApp.sync: Thread sync の初期化が完了しました。
+2023-03-13 14:28:51,864 INFO tcp_com.py EdgeApp.sync.EdgeTcpServer: Server is running on localhost:5001
+2023-03-13 14:28:51,866 INFO sys_thread.py EdgeApp.database: Thread database の初期化が完了しました。
+2023-03-13 14:28:52,852 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 69.19579853270494
+2023-03-13 14:28:52,852 INFO process_thread.py EdgeApp.data_process: Processed data: 138.39159706540988
+2023-03-13 14:28:53,855 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 30.490975092626204
+2023-03-13 14:28:53,855 INFO process_thread.py EdgeApp.data_process: Processed data: 60.98195018525241
+2023-03-13 14:28:54,855 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 80.3408148409771
+2023-03-13 14:28:54,855 INFO process_thread.py EdgeApp.data_process: Processed data: 160.6816296819542
+2023-03-13 14:28:55,858 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 72.52959370295264
+2023-03-13 14:28:55,858 INFO process_thread.py EdgeApp.data_process: Processed data: 145.05918740590528
+2023-03-13 14:28:56,867 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 14:28:56,867 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 13.519737203154037
+2023-03-13 14:28:56,867 INFO process_thread.py EdgeApp.data_process: Processed data: 27.039474406308074
+2023-03-13 14:28:57,896 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 33.8680464853788
+2023-03-13 14:28:57,896 INFO process_thread.py EdgeApp.data_process: Processed data: 67.7360929707576
+2023-03-13 14:28:58,903 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 63.86971473102948
+2023-03-13 14:28:58,903 INFO process_thread.py EdgeApp.data_process: Processed data: 127.73942946205896
+2023-03-13 14:28:59,916 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 40.485376695047194
+2023-03-13 14:28:59,916 INFO process_thread.py EdgeApp.data_process: Processed data: 80.97075339009439
+2023-03-13 14:29:00,917 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 86.64236954621994
+2023-03-13 14:29:00,917 INFO process_thread.py EdgeApp.data_process: Processed data: 173.28473909243988
+2023-03-13 14:29:01,877 INFO sync_thread.py EdgeApp.sync: Server_Health_Check - STATUS=OK
+2023-03-13 14:29:01,923 INFO data_collection_edge.py EdgeApp: Thread edge1 send shutdown signal to other threads...
+2023-03-13 14:29:01,923 INFO sensor_thread.py EdgeApp.sensor: Sensor read value = 54.21711302487752
+2023-03-13 14:29:01,924 INFO sensor_thread.py EdgeApp.sensor: Thread sensor cleaned up
+2023-03-13 14:29:01,924 INFO process_thread.py EdgeApp.data_process: Processed data: 108.43422604975504
+2023-03-13 14:29:01,924 INFO sys_thread.py EdgeApp.sensor: Thread sensor のクリーンアップが完了しました。
+2023-03-13 14:29:01,925 INFO sys_thread.py EdgeApp.sensor: Thread sensor が停止しました。
+2023-03-13 14:29:01,926 INFO sys_thread.py EdgeApp.data_process: Thread data_process がクリーンアップを開始します…
+2023-03-13 14:29:01,926 INFO sys_thread.py EdgeApp.data_process: Thread data_process のクリーンアップが完了しました。
+2023-03-13 14:29:01,927 INFO sys_thread.py EdgeApp.data_process: Thread data_process が停止しました。
+2023-03-13 14:29:01,928 INFO sys_thread.py EdgeApp.sync: Thread sync がクリーンアップを開始します…
+2023-03-13 14:29:01,928 INFO tcp_com.py EdgeApp.sync.EdgeTcpServer: Stopping server...
+2023-03-13 14:29:01,929 INFO sys_thread.py EdgeApp.sync: Thread sync のクリーンアップが完了しました。
+2023-03-13 14:29:01,929 ERROR tcp_com.py EdgeApp.sync.EdgeTcpServer: Server could not be started or get terminated -[WinError 10038] An operation was attempted on something that is not a socket
+2023-03-13 14:29:01,929 INFO sys_thread.py EdgeApp.sync: Thread sync が停止しました。
+2023-03-13 14:29:01,929 WARNING tcp_com.py EdgeApp.sync.EdgeTcpServer: Server Stopped !
+2023-03-13 14:29:01,937 INFO sys_thread.py EdgeApp.database: Thread database がクリーンアップを開始します…
+2023-03-13 14:29:01,938 INFO sys_thread.py EdgeApp.database: Thread database のクリーンアップが完了しました。
+2023-03-13 14:29:01,938 INFO sys_thread.py EdgeApp.database: Thread database が停止しました。
+2023-03-13 14:29:01,939 INFO data_collection_edge.py EdgeApp: Program edge1 exited...
+2023-03-13 14:29:01,939 INFO sys_thread.py EdgeApp: MainThread edge1 のクリーンアップが完了しました。
+2023-03-13 14:29:01,940 INFO sys_thread.py EdgeApp: MainThread edge1 が停止しました。

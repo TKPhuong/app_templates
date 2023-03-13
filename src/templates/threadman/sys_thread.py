@@ -4,6 +4,16 @@ import threading
 import traceback
 from logging import Logger
 from typing import Callable
+from enum import Enum
+
+
+class States(Enum):
+    STARTUP = "スタートアップ"
+    INITIATING = "処理化中"
+    IDLE = "タスク待ち"
+    PROCESSING = "タスク処理中"
+    CLEANUP = "クリーンアップ"
+    EXITED = "終了"
 
 
 class CmdDispatcher:
@@ -49,12 +59,13 @@ class CmdDispatcher:
         None
         """
         try:
+            instance._state = States.PROCESSING
             for handler in self._handlers[event]:
                 handler(instance, *args, **kwargs)
         except KeyError as e:
             e.args = (f"イベント {event} の処理が登録されていません。", )
             raise e
-
+        
 
 class SysThread:
     def __init__(self, name:str, logger:Logger, sys_queues:queue.Queue,
@@ -71,6 +82,17 @@ class SysThread:
         self.parent = kwargs.get("parent", None)
         self.event = kwargs.get("event", None)
         self.cmd_dispatcher = CmdDispatcher()
+        self._state = States.STARTUP
+        self._error = None
+        self._thread_prefix = "Thread" if not is_main else "MainThread"
+    
+    @property
+    def state(self):
+        return self._state.value
+
+    @property
+    def error(self):
+        return self._error
 
     def command_register(self):
         """
@@ -87,7 +109,7 @@ class SysThread:
         """スレッドを起動する。"""
         if not self.is_main:
             if self.thread is not None:
-                raise Exception(f"Thread {self.name} はすでに開始されています。")
+                raise Exception(f"{self._thread_prefix} {self.name} はすでに開始されています。")
             self.thread = threading.Thread(target=self.run, name=self.name)
             self.thread.start()
         else:
@@ -98,7 +120,7 @@ class SysThread:
         self.should_stop = True
         self.task_queue.put(None)
         if self.thread is None:
-            self.logger.error(Exception(f"Thread {self.name} not started"))
+            self.logger.error(Exception(f"{self._thread_prefix} {self.name} not started"))
         else:
             self.thread.join()
         self.thread = None
@@ -127,31 +149,47 @@ class SysThread:
     def run(self):
         """スレッドのメインループ。"""
         try:
+            self.logger.info(f"{self._thread_prefix} {self.name} が開始されました。")
             self.thread_initiate()
+            self.logger.info(f"{self._thread_prefix} {self.name} の初期化が完了しました。")
+            self._state = States.IDLE
             while not self.should_stop:
                 try:
                     if self.event:
                         self.event.wait()
-                        
+                    
                     task = self.task_queue.get(timeout=self.q_timeout)
                     if task is None:
                         break
                     # Handle the incoming command
-                    self.logger.debug(f"Thread {self.name} received task={task}")
+                    self.logger.debug(f"{self._thread_prefix} {self.name} received task={task}")
                     command = task.get("cmd")
                     self.cmd_dispatcher.dispatch(command, instance=self, task=task)
+                    self._state = States.IDLE
                     # Mark task as done
                     self.task_queue.task_done()
                 except queue.Empty:
                     pass
         except Exception as e:
-            self.logger.error(f"Thread {self.name} エラー： {e}")
+            self.logger.error(f"{self._thread_prefix} {self.name} が「{self._state.value}」の状態でエラー発生： {e}")
             traceback_str = traceback.format_exc()
             self.logger.error(f"詳細なトレースバック：\n{traceback_str}")
+            self._error = e
             self._propagate_err_2_parent(e)
         finally:
-            self.thread_cleanup()
-            self.logger.info(f"{self.name} スレッドが停止しました。")
+            try:
+                self.thread_cleanup()
+                self.logger.info(f"{self._thread_prefix} {self.name} のクリーンアップが完了しました。")
+                self._state = States.EXITED
+            except Exception as e:
+                self.logger.error(
+                    f"{self._thread_prefix} エラーのクリーンアップを実施している際に、異なるエラーが発生しました： {e}"
+                )
+                traceback_str = traceback.format_exc()
+                self.logger.error(f"詳細なトレースバック：\n{traceback_str}")
+                self.logger.warning(f"{self._thread_prefix} {self.name} がクリーンアップ処理を実施できず、停止します...")
+            finally:
+                self.logger.info(f"{self._thread_prefix} {self.name} が停止しました。")
 
     def thread_initiate(self):
         """
@@ -161,8 +199,9 @@ class SysThread:
         -------
         None
         """
+        self._state = States.INITIATING
         self.command_register()
-        self.logger.info(f"{self.name} スレッドが開始されました。")
+        self.logger.info(f"{self._thread_prefix} {self.name} が初期化を開始します…")
         # SysThreadを継承するとき、以下のようにthread_initiateの処理を書き直す
         # super().thread_initiate()
         # 処理を書く
@@ -196,7 +235,7 @@ class SysThread:
         task = kwargs["task"]
         child_name = task.get("name")
         e = task.get("exception")
-        self.logger.info(f"Thread {self.name} received propagated error {e} from Thread {child_name}")
+        self.logger.info(f"{self._thread_prefix} {self.name} received propagated error {e} from Thread {child_name}")
         #現在は子で捉えたエラーを再発生させるだけだが、具体的なエラー処理をここに書く(子スレッドの再起動、システムの終了…)
         raise e
         ...
@@ -210,12 +249,19 @@ class SysThread:
         -------
         None
         """
+        self.logger.info(f"{self._thread_prefix} {self.name} がクリーンアップを開始します…")
+        self._state = States.CLEANUP
+        # SysThreadを継承するとき、以下のようにthread_cleanup()の処理を書き直す
+        # super().thread_cleanup()
         # クリーンアップの処理を書く
         ...
 
+    def get_state(self):
+        return self._state.value
+
     def initiate_shutdown(self):
         """他のスレッドにシャットダウンを通知する。"""
-        self.logger.info(f"Thread {self.name} が他のスレッドにシャットダウン・シグナルを送信しています...")
+        self.logger.info(f"{self._thread_prefix} {self.name} が他のスレッドにシャットダウン・シグナルを送信しています...")
         for name, queue in self.sys_queues.items():
             if name != self.name:
                 queue.put(None)
@@ -243,6 +289,6 @@ class SysThread:
         """
         if self.parent:
             self.parent.task_queue.put({"cmd": "CHILD_EXCEPTION", "exception": e, "from": self.name}) 
-            self.logger.info(f"Thread {self.name} がエラー {e} を {self.parent.name} に伝播しました。")
+            self.logger.info(f"{self._thread_prefix} {self.name} がエラー {e} を {self.parent.name} に伝播しました。")
         else:
             pass

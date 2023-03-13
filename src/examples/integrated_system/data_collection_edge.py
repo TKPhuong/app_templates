@@ -119,7 +119,6 @@ class EdgeApp(SysThread):
                                               name="start_sensor_thread", interval=1)
         self.threads["start_sensor_thread"] = self.start_sensor_thread
         self.threads["start_sensor_thread"].start()
-        
     
     def _start_sensor_func(self):
         self.add_task2queue(self.procs_name["sensor"], {"cmd":"read_sensor", "from": self.name})
@@ -127,13 +126,12 @@ class EdgeApp(SysThread):
     def thread_cleanup(self):
         # self.initiate_shutdown()
         # self.threads["start_sensor_thread"].stop()
-        self.logger.info(f"Thread {self.name} send shutdown signal to other threads...")
+        self.logger.info(f"MainThread {self.name} send shutdown signal to other threads...")
         for thread_name, thread in self.threads.items():
             thread.stop()
             thread.join()
-        self.logger.info(f"Program {self.name} exited...")
         
-        
+
 
 if __name__ == "__main__":
     FILE_PATH = os.path.join(current_dir, "log/myapp.log")

@@ -64,6 +64,7 @@ class EdgeSynchronizeThread(SysThread):
         self.send_data_to_main_system(task["data"])
 
     def thread_cleanup(self):
+        super().thread_cleanup()
         # Stop Watchdog Thread
         if self.server_watchdog_thread:
             self.server_watchdog_thread.stop()
@@ -73,8 +74,6 @@ class EdgeSynchronizeThread(SysThread):
         if self.tcp_server:
             self.tcp_server.stop()
             self.tcp_server = None
-
-        self.logger.info(f"Thread {self.name} cleaned up")
 
     def get_data(self):
         # send get_data command to DBThread

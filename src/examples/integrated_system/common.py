@@ -12,13 +12,14 @@ class States(metaclass=ConstantMaker):
     """
     システムの状態を表す定数を定義するクラスです。
     """
-    start_up = "STARTUP"
-    initiating = "INITIATING"
-    initiated = "INITIATED"
-    idle = "IDLE"
-    process = "PROCESSING"
-    error = "ERROR"
-    cleanup = "CLEANUP"
+    STARTUP = "スタートアップ"
+    INITIATING = "処理化中"
+    INITIATED = "処理化済み"
+    IDLE = "タスク待ち"
+    PROCESSING = "タスク処理中"
+    ERROR = "エラー発生中"
+    CLEANUP = "クリーンアップ"
+    EXITED = "終了"
 
-APP_INIT_STATS = {"STATE":States.start_up}
+APP_INIT_STATS = {"STATE":States.STARTUP}
 THREAD_INIT_STATS = {"STATE":States["start_up"]}
