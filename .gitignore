@@ -5,3 +5,4 @@ mkdir_files
 .coverage
 .git
 .db
+.vscode

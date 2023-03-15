@@ -228,17 +228,17 @@ class SysThread:
         #処理を書く
         ...
 
-    #書き直す対象, handle_command の１つの例
-    def handle_child_exception_command(self, *args, **kwargs):
-        #「CHILD_EXCEPTION」を受信したときの処理
-        #SysThreadを継承するとき、以下のようにhandle_child_exception_commandの処理を書き直す
-        task = kwargs["task"]
-        child_name = task.get("name")
-        e = task.get("exception")
-        self.logger.info(f"{self._thread_prefix} {self.name} received propagated error {e} from Thread {child_name}")
-        #現在は子で捉えたエラーを再発生させるだけだが、具体的なエラー処理をここに書く(子スレッドの再起動、システムの終了…)
-        raise e
-        ...
+        #書き直す対象, handle_command の１つの例
+        def handle_child_exception_command(self, *args, **kwargs):
+            #「CHILD_EXCEPTION」を受信したときの処理
+            #SysThreadを継承するとき、以下のようにhandle_child_exception_commandの処理を書き直す
+            task = kwargs["task"]
+            child_name = task.get("name")
+            e = task.get("exception")
+            self.logger.info(f"{self._thread_prefix} {self.name} received propagated error {e} from Thread {child_name}")
+            #現在は子で捉えたエラーを再発生させるだけだが、具体的なエラー処理をここに書く(子スレッドの再起動、システムの終了…)
+            raise e
+            ...
     
     #書き直す対象
     def thread_cleanup(self):
@@ -255,9 +255,6 @@ class SysThread:
         # super().thread_cleanup()
         # クリーンアップの処理を書く
         ...
-
-    def get_state(self):
-        return self._state.value
 
     def initiate_shutdown(self):
         """他のスレッドにシャットダウンを通知する。"""
@@ -292,3 +289,26 @@ class SysThread:
             self.logger.info(f"{self._thread_prefix} {self.name} がエラー {e} を {self.parent.name} に伝播しました。")
         else:
             pass
+
+if __name__ == "__main__":
+
+    class MyThread(SysThread):
+
+        def thread_initiate(self):
+            super().thread_initiate()
+            # ここで必要な初期化処理を実行する
+
+        def command_register(self):
+            super().command_register()
+            self.cmd_dispatcher.register_handler("CUSTOM_COMMAND", self.handle_custom_command)
+
+        #SysThreadを継承するとき、適切な処理を以下の形でクラスに追加する
+        def handle_custom_command(self, *args, **kwargs):
+            #「"CUSTOM_COMMAND"」を受信したときの処理。kwargsに受信したタスクが格納される
+            task = kwargs["task"]
+            #処理を書く
+            ...
+
+        def thread_cleanup(self):
+            super().thread_cleanup()
+            # ここで必要なクリーンアップ処理を実行する

@@ -68,7 +68,7 @@ class Logger(logging.Logger):
 
         Returns:
         --------
-        logger : NewLogger
+        logger : Logger
             指定された名前の子ロガー
         """
         # 子ロガーの名前を生成する
