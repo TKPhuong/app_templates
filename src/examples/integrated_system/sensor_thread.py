@@ -34,7 +34,3 @@ class SensorThread(SysThread):
         time_stamp = timestamp2str(time.time())
         self.add_task2queue("data_process", {"cmd": "process_data", 
                             "data": {"time":time_stamp, "val":value}, "from": self.name})
-
-    def thread_cleanup(self):
-        self.logger.info(f"Thread {self.name} cleaned up")
-        # Disconnect from sensor

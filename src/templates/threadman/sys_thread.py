@@ -9,7 +9,7 @@ from enum import Enum
 
 class States(Enum):
     STARTUP = "スタートアップ"
-    INITIATING = "処理化中"
+    INITIATING = "初期化中"
     IDLE = "タスク待ち"
     PROCESSING = "タスク処理中"
     CLEANUP = "クリーンアップ"
@@ -171,9 +171,9 @@ class SysThread:
                 except queue.Empty:
                     pass
         except Exception as e:
-            self.logger.error(f"{self._thread_prefix} {self.name} が「{self._state.value}」の状態でエラー発生： {e}")
-            traceback_str = traceback.format_exc()
-            self.logger.error(f"詳細なトレースバック：\n{traceback_str}")
+            self.logger.exception(
+                f"{self._thread_prefix} {self.name} が「{self._state.value}」の状態でエラー発生： {e}"
+            )
             self._error = e
             self._propagate_err_2_parent(e)
         finally:
@@ -182,11 +182,9 @@ class SysThread:
                 self.logger.info(f"{self._thread_prefix} {self.name} のクリーンアップが完了しました。")
                 self._state = States.EXITED
             except Exception as e:
-                self.logger.error(
+                self.logger.exception(
                     f"{self._thread_prefix} エラーのクリーンアップを実施している際に、異なるエラーが発生しました： {e}"
                 )
-                traceback_str = traceback.format_exc()
-                self.logger.error(f"詳細なトレースバック：\n{traceback_str}")
                 self.logger.warning(f"{self._thread_prefix} {self.name} がクリーンアップ処理を実施できず、停止します...")
             finally:
                 self.logger.info(f"{self._thread_prefix} {self.name} が停止しました。")
@@ -228,18 +226,24 @@ class SysThread:
         #処理を書く
         ...
 
-        #書き直す対象, handle_command の１つの例
-        def handle_child_exception_command(self, *args, **kwargs):
-            #「CHILD_EXCEPTION」を受信したときの処理
-            #SysThreadを継承するとき、以下のようにhandle_child_exception_commandの処理を書き直す
-            task = kwargs["task"]
-            child_name = task.get("name")
-            e = task.get("exception")
-            self.logger.info(f"{self._thread_prefix} {self.name} received propagated error {e} from Thread {child_name}")
-            #現在は子で捉えたエラーを再発生させるだけだが、具体的なエラー処理をここに書く(子スレッドの再起動、システムの終了…)
-            raise e
-            ...
-    
+    #書き直す対象, handle_command の１つの例
+    def handle_child_exception_command(self, *args, **kwargs):
+        #「CHILD_EXCEPTION」を受信したときの処理
+        #SysThreadを継承するとき、以下のようにhandle_child_exception_commandの処理を書き直す
+        task = kwargs["task"]
+        child_name = task.get("name")
+        e = task.get("exception")
+        self.logger.info(f"{self._thread_prefix} {self.name} received propagated error {e} from Thread {child_name}")
+        #現在は子で捉えたエラーを再発生させるだけだが、具体的なエラー処理をここに書く(子スレッドの再起動、システムの終了…)
+        raise e
+        ...
+
+    #SysThreadを継承するとき、適切な処理を以下の形でクラスに追加する
+    def handle_custom_command(self, *args, **kwargs):
+        #「"CUSTOM_COMMAND"」を受信したときの処理。kwargsに受信したタスクが格納される
+        task = kwargs["task"]
+        #処理を書く
+
     #書き直す対象
     def thread_cleanup(self):
         """
