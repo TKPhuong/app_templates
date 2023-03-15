@@ -42,6 +42,29 @@ class TestSqliteDB:
         )
         assert result == [("Bob", 25), ("Charlie", 30)]
 
+    # @pytest.mark.parametrize(
+    #     "columns, where_clause, order_by, limit, expected",
+    #     [
+    #         (["name", "age"], None, None, None, [("Alice", 20), ("Bob", 25), ("Charlie", 30), ("Dave", 40), ("Frank", 50)]),
+    #         (["name"], "age > 25", None, None, [("Bob",), ("Charlie",), ("Dave",), ("Frank",)]),
+    #         (["name"], None, "age DESC", None, [("Frank",), ("Dave",), ("Charlie",), ("Bob",), ("Alice",)]),
+    #         (["name"], None, None, 3, [("Alice",), ("Bob",), ("Charlie",)]),
+    #     ]
+    # )
+    # def test_select_with_params(self, test_db, columns, where_clause, order_by, limit, expected):
+    #     result = test_db.select("users", columns=columns, where_clause=where_clause, order_by=order_by, limit=limit)
+    #     assert result == expected
+
+    def test_insert_many(self, test_db):
+        data = [
+            (4, "Dave", 40),
+            (5, "Eve", 45),
+            (6, "Frank", 50)
+        ]
+        test_db.insert_many("users", data)
+        result = test_db.select("users", columns=["name"], where_clause="id > 3")
+        assert result == [("Dave",), ("Eve",), ("Frank",)]
+
     def test_update(self, test_db):
         test_db.update("users", "age = 26", "name = 'Bob'")
         result = test_db.select("users", columns=["age"], where_clause="name = 'Bob'")

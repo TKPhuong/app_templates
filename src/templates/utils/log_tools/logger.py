@@ -89,3 +89,46 @@ class Logger(logging.Logger):
             self.manager.loggerDict[name] = logger
         
         return logger
+    
+if __name__ == "__main__":
+    import tempfile
+
+    def sample_log(logger):
+        logger.debug("This is a debug message")
+        logger.info("This is an info message")
+        logger.warning("This is a warning message")
+        logger.error("This is an error message")
+        logger.critical("This is a critical message")
+
+    with tempfile.TemporaryDirectory() as tempdir:
+        # Example 1
+        logger1 = Logger(file_path=f"{tempdir}/log1.log")
+        # Log messages with different log levels
+        sample_log(logger1)
+
+        # Example 2
+        logger2 = Logger(
+            name="custom",
+            level="debug",
+            format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+            file_path=f"{tempdir}/log2.log",
+            backup_count=10,
+        )
+        sample_log(logger2)
+
+        # Example 3
+        parent_logger = Logger(name="parent", file_path=f"{tempdir}/log3.log")
+        child_logger1 = parent_logger.getChild("child1")
+        child_logger2 = parent_logger.getChild("child2")
+
+        parent_logger.info("This is a message from the parent logger")
+        child_logger1.info("This is a message from child logger 1")
+        child_logger2.info("This is a message from child logger 2")
+
+        # Example 4
+        logger4 = Logger(file_path=f"{tempdir}/log4.log")
+        try:
+            x = 1 / 0
+        except ZeroDivisionError as e:
+            logger4.exception(f"An exception occurred: {e}")
+        logging.shutdown()
