@@ -1,7 +1,6 @@
 # 関数をスレッドとして実行する
 import threading
 from typing import Optional, Union, List, Tuple, Callable
-import time
 
 class FuncThread(threading.Thread):
     """
@@ -50,7 +49,8 @@ class FuncThread(threading.Thread):
         Stops the thread from running.
         """
         self.event.set()
-        time.sleep(0.1)
+        while self.is_alive():
+            pass
 
 
 if __name__ == "__main__":
