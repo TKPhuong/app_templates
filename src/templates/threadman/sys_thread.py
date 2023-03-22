@@ -88,7 +88,7 @@ class SysThread:
     
     @property
     def state(self):
-        return self._state.value
+        return self._state
 
     @property
     def error(self):
