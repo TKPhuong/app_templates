@@ -61,18 +61,13 @@ if __name__ == "__main__":
 
     # ワンタイムスレッドを作成する
     t1 = FuncThread(target=print_hello, name="OneTimeThread", args=('Alice',))
-    t1.start()
+    t1.start()# スレッドを開始
+    t1.join()# スレッドの実行が完了するまで待機する
 
-    # スレッドの実行が完了するまで待機する
-    t1.join()
-
-    # ループするスレッドを作成する
+    # 反復スレッドを作成する
     t2 = FuncThread(target=print_hello, name="RecurrentThread", args=('Bob',), interval=1)
-    t2.start()
-
-    # 5秒待機する
-    time.sleep(5)
-    print(f"{t2.is_alive()=}")
-    # スレッドの実行を停止する
-    t2.stop()
-    print(f"{t2.is_alive()=}")
+    t2.start()# スレッドを開始
+    time.sleep(5)# 5秒待機する
+    print(f"{t2.is_alive()=}")# スレッドが生きているか確認, >> True
+    t2.stop()# スレッドの実行を停止する
+    print(f"{t2.is_alive()=}") # スレッドが生きているか確認, >> False
