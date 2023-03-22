@@ -6,7 +6,7 @@ from sqlalchemy.orm import sessionmaker
 
 class SqliteDB:
     """
-    SQLiteデータベースにアクセスするためのユーティリティクラス。
+    SQLiteデータベースにアクセスするためのクラス。
 
     Parameters
     ----------
