@@ -37,3 +37,11 @@ def check_disk_space(
         status = "NG"
 
     return status
+
+if __name__ == "__main__":
+    folder_path = "./"
+    attention_size = 100  # 100 GB
+    ok_size = 80  # 80 GB
+
+    status = check_disk_space(folder_path, attention_size, ok_size, unit="GB")
+    print(f"ディスクスペースのステータス: {status}")
