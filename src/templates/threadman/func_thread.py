@@ -25,13 +25,6 @@ class FuncThread(threading.Thread):
         self.interval = interval
         self.event = threading.Event()
 
-    def start(self):
-        """
-        スレッドを開始する。
-        """
-        self.event.clear()
-        super().start()
-
     def run(self):
         """
         スレッドで関数を実行します。
