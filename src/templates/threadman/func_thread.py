@@ -1,6 +1,7 @@
 # 関数をスレッドとして実行する
 import threading
 from typing import Optional, Union, List, Tuple, Callable
+import time
 
 class FuncThread(threading.Thread):
     """
@@ -25,6 +26,13 @@ class FuncThread(threading.Thread):
         self.interval = interval
         self.event = threading.Event()
 
+    def start(self):
+        """
+        スレッドを開始する。
+        """
+        self.event.clear()
+        super().start()
+
     def run(self):
         """
         スレッドで関数を実行します。
@@ -42,6 +50,7 @@ class FuncThread(threading.Thread):
         Stops the thread from running.
         """
         self.event.set()
+        time.sleep(0.1)
 
 
 if __name__ == "__main__":
@@ -51,18 +60,19 @@ if __name__ == "__main__":
         print(f'Hello, {name}!')
 
     # ワンタイムスレッドを作成する
-    t1 = FuncThread(target=print_hello, args=('Alice',))
+    t1 = FuncThread(target=print_hello, name="OneTimeThread", args=('Alice',))
     t1.start()
 
     # スレッドの実行が完了するまで待機する
     t1.join()
 
-    # リカーリングスレッドを作成する
-    t2 = FuncThread(target=print_hello, args=('Bob',), interval=1)
+    # ループするスレッドを作成する
+    t2 = FuncThread(target=print_hello, name="RecurrentThread", args=('Bob',), interval=1)
     t2.start()
 
     # 5秒待機する
     time.sleep(5)
-
+    print(f"{t2.is_alive()=}")
     # スレッドの実行を停止する
     t2.stop()
+    print(f"{t2.is_alive()=}")
