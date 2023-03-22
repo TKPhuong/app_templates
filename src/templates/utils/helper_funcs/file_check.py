@@ -23,26 +23,24 @@ def check_file(f_name, dir_name, error_code=1):
         raise FileNotFoundError(error_message, error_code)
 
 if __name__ == "__main__":
-    pass
+    import tempfile
+    import os
 
-import tempfile
-import os
+    with tempfile.TemporaryDirectory() as directory_name:
+        # 存在するファイルの例
+        file_name = "test.txt"
 
-with tempfile.TemporaryDirectory() as directory_name:
-    # 存在するファイルの例
-    file_name = "test.txt"
+        # 存在しないファイルの例
+        nonexist_file_name = "nonexistent.txt"
+        error_code = 1
 
-    # 存在しないファイルの例
-    nonexist_file_name = "nonexistent.txt"
-    error_code = 1
+        # テスト用のファイルを作成
+        with open(os.path.join(directory_name, file_name), "w") as f:
+            f.write("test")
 
-    # テスト用のファイルを作成
-    with open(os.path.join(directory_name, file_name), "w") as f:
-        f.write("test")
-
-    try:
-        check_file(file_name, directory_name, error_code)
-        print("ファイルが存在します。")
-        check_file(nonexist_file_name, directory_name, error_code)
-    except FileNotFoundError as e:
-        print(e)
+        try:
+            check_file(file_name, directory_name, error_code)
+            print("ファイルが存在します。")
+            check_file(nonexist_file_name, directory_name, error_code)
+        except FileNotFoundError as e:
+            print(e)
