@@ -132,7 +132,7 @@ class TcpServer:
                         break
         except OSError as e:
             if not self.breakpoint:
-                self.logger.error(f"サーバーが起動できませんでした -{e}")
+                self.logger.exception(f"サーバーが起動できませんでした -{e}")
             else:
                 pass
         finally:
@@ -171,11 +171,15 @@ class TcpServer:
             self.cmd_dispatcher.dispatch(command, instance=self, connection=connection, data_dict=data_dict)
 
         except OSError as e:
-            self.logger.error(f"クライアントとの通信時にエラーが発生しました: {e}")
+            self.logger.exception(f"クライアントとの通信時にエラーが発生しました: {e}")
         except json.JSONDecodeError as e:
-            self.logger.error(f"JSONデータのデコード中にエラーが発生しました: {e}")
+            self.logger.exception(f"JSONデータのデコード中にエラーが発生しました: {e}")
+        except KeyError as e:
+            self.logger.exception(f"受信したコマンドが不正です: {e}")
+            res_string = {"invalid_cmd": True, "msg": f"コマンド{command}が登録されていません。"}
+            connection.sendall(json.dumps(res_string).encode('utf-8'))
         except Exception as e:
-            self.logger.error(f"クライアントとの通信時に予期せぬエラーが発生しました: {e}")
+            self.logger.exception(f"クライアントとの通信時に予期せぬエラーが発生しました: {e}")
         finally:
             connection.close()
             # self.stop()
@@ -250,16 +254,19 @@ class TcpClient:
                 if response.get('success'):
                     self.logger.info("コマンドの送信が成功しました。")
                     return response.get('result', None)
+                elif response.get('invalid_cmd'):
+                    self.logger.error(f"{response.get('msg')}")
+                    return response
                 else:
                     self.logger.warning("コマンドの送信が失敗しました。")
                     return None
 
         except OSError as e:
-            self.logger.error(f"サーバーとの通信エラー: {e}")
+            self.logger.exception(f"サーバーとの通信エラー: {e}")
         except json.JSONDecodeError as e:
-            self.logger.error(f"JSONデータのデコードエラー: {e}")
+            self.logger.exception(f"JSONデータのデコードエラー: {e}")
         except Exception as e:
-            self.logger.error(f"サーバーとの通信時に予期せぬエラーが発生しました: {e}")
+            self.logger.exception(f"サーバーとの通信時に予期せぬエラーが発生しました: {e}")
 
         return None
     
