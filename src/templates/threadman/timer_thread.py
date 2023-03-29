@@ -34,6 +34,7 @@ class TimerThread():
     def cancel(self):
         if self.thread:
             self.thread.cancel()
+            self.thread = None
         self.start_time = 0
 
     # @staticmethod

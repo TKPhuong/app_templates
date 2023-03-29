@@ -239,3 +239,99 @@ KeyError: 'イベント INVALID_CMD に対応するハンドラが登録され�
 2023-03-29 17:09:22,785 ERROR tcp_com.py test_tcpclient: コマンドINVALID_CMDが登録されていません。
 2023-03-29 17:09:22,786 INFO tcp_com.py test_tcpserver: サーバーを停止しています...
 2023-03-29 17:09:22,787 WARNING tcp_com.py test_tcpserver: サーバーは停止しました。
+2023-03-29 17:18:33,801 INFO tcp_com.py test_tcpserver: TCPサーバーの初期化を行う...
+2023-03-29 17:18:33,802 INFO tcp_com.py test_tcpserver: サーバーは127.0.0.1:5000で稼働しています。
+2023-03-29 17:18:34,814 INFO tcp_com.py test_tcpserver: New Connection : ('127.0.0.1', 62271)
+2023-03-29 17:18:34,814 INFO tcp_com.py test_tcpserver: データ取得 : 
+2023-03-29 17:18:34,815 ERROR tcp_com.py test_tcpserver: JSONデータのデコード中にエラーが発生しました: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "C:\Users\N533\Local_IPS\Documents\Python\juutenshisaku\app_template\code\src\templates\comm\tcp_com.py", line 168, in handle_connection
+    data_dict = json.loads(data)
+  File "C:\Users\N533\anaconda3\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\N533\anaconda3\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\N533\anaconda3\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2023-03-29 17:18:34,818 INFO tcp_com.py test_tcpserver: New Connection : ('127.0.0.1', 62272)
+2023-03-29 17:18:34,818 INFO tcp_com.py test_tcpserver: データ取得 : {"cmd": "CMD_TEST"}
+2023-03-29 17:18:34,818 INFO tcp_com.py test_tcpclient: コマンドの送信が成功しました。
+2023-03-29 17:18:34,820 INFO tcp_com.py test_tcpserver: New Connection : ('127.0.0.1', 62273)
+2023-03-29 17:18:34,821 INFO tcp_com.py test_tcpserver: データ取得 : {"cmd": "INVALID_CMD"}
+2023-03-29 17:18:34,821 ERROR tcp_com.py test_tcpserver: 受信したコマンドが不正です: 'イベント INVALID_CMD に対応するハンドラが登録されていません。'
+Traceback (most recent call last):
+  File "C:\Users\N533\Local_IPS\Documents\Python\juutenshisaku\app_template\code\src\templates\comm\tcp_com.py", line 171, in handle_connection
+    self.cmd_dispatcher.dispatch(command, instance=self, connection=connection, data_dict=data_dict)
+  File "C:\Users\N533\Local_IPS\Documents\Python\juutenshisaku\app_template\code\src\templates\comm\tcp_com.py", line 51, in dispatch
+    raise e
+  File "C:\Users\N533\Local_IPS\Documents\Python\juutenshisaku\app_template\code\src\templates\comm\tcp_com.py", line 47, in dispatch
+    for handler in self._handlers[event]:
+KeyError: 'イベント INVALID_CMD に対応するハンドラが登録されていません。'
+2023-03-29 17:18:34,821 ERROR tcp_com.py test_tcpclient: コマンドINVALID_CMDが登録されていません。
+2023-03-29 17:18:34,822 INFO tcp_com.py test_tcpserver: サーバーを停止しています...
+2023-03-29 17:18:34,823 WARNING tcp_com.py test_tcpserver: サーバーは停止しました。
+2023-03-29 17:21:21,361 INFO tcp_com.py test_tcpserver: TCPサーバーの初期化を行う...
+2023-03-29 17:21:21,362 INFO tcp_com.py test_tcpserver: サーバーは127.0.0.1:5000で稼働しています。
+2023-03-29 17:21:22,367 INFO tcp_com.py test_tcpserver: New Connection : ('127.0.0.1', 62297)
+2023-03-29 17:21:22,367 INFO tcp_com.py test_tcpserver: データ取得 : 
+2023-03-29 17:21:22,368 ERROR tcp_com.py test_tcpserver: JSONデータのデコード中にエラーが発生しました: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "C:\Users\N533\Local_IPS\Documents\Python\juutenshisaku\app_template\code\src\templates\comm\tcp_com.py", line 168, in handle_connection
+    data_dict = json.loads(data)
+  File "C:\Users\N533\anaconda3\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\N533\anaconda3\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\N533\anaconda3\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2023-03-29 17:21:22,371 INFO tcp_com.py test_tcpserver: New Connection : ('127.0.0.1', 62298)
+2023-03-29 17:21:22,371 INFO tcp_com.py test_tcpserver: データ取得 : {"cmd": "CMD_TEST"}
+2023-03-29 17:21:22,371 INFO tcp_com.py test_tcpclient: コマンドの送信が成功しました。
+2023-03-29 17:21:22,373 INFO tcp_com.py test_tcpserver: New Connection : ('127.0.0.1', 62299)
+2023-03-29 17:21:22,374 INFO tcp_com.py test_tcpserver: データ取得 : {"cmd": "INVALID_CMD"}
+2023-03-29 17:21:22,374 ERROR tcp_com.py test_tcpserver: 受信したコマンドが不正です: 'イベント INVALID_CMD に対応するハンドラが登録されていません。'
+Traceback (most recent call last):
+  File "C:\Users\N533\Local_IPS\Documents\Python\juutenshisaku\app_template\code\src\templates\comm\tcp_com.py", line 171, in handle_connection
+    self.cmd_dispatcher.dispatch(command, instance=self, connection=connection, data_dict=data_dict)
+  File "C:\Users\N533\Local_IPS\Documents\Python\juutenshisaku\app_template\code\src\templates\comm\tcp_com.py", line 51, in dispatch
+    raise e
+  File "C:\Users\N533\Local_IPS\Documents\Python\juutenshisaku\app_template\code\src\templates\comm\tcp_com.py", line 47, in dispatch
+    for handler in self._handlers[event]:
+KeyError: 'イベント INVALID_CMD に対応するハンドラが登録されていません。'
+2023-03-29 17:21:22,375 ERROR tcp_com.py test_tcpclient: コマンドINVALID_CMDが登録されていません。
+2023-03-29 17:21:22,376 INFO tcp_com.py test_tcpserver: サーバーを停止しています...
+2023-03-29 17:21:22,376 WARNING tcp_com.py test_tcpserver: サーバーは停止しました。
+2023-03-29 17:23:38,621 INFO tcp_com.py test_tcpserver: TCPサーバーの初期化を行う...
+2023-03-29 17:23:38,622 INFO tcp_com.py test_tcpserver: サーバーは127.0.0.1:5000で稼働しています。
+2023-03-29 17:23:39,630 INFO tcp_com.py test_tcpserver: New Connection : ('127.0.0.1', 62312)
+2023-03-29 17:23:39,631 INFO tcp_com.py test_tcpserver: データ取得 : 
+2023-03-29 17:23:39,631 ERROR tcp_com.py test_tcpserver: JSONデータのデコード中にエラーが発生しました: Expecting value: line 1 column 1 (char 0)
+Traceback (most recent call last):
+  File "C:\Users\N533\Local_IPS\Documents\Python\juutenshisaku\app_template\code\src\templates\comm\tcp_com.py", line 168, in handle_connection
+    data_dict = json.loads(data)
+  File "C:\Users\N533\anaconda3\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\N533\anaconda3\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\N533\anaconda3\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2023-03-29 17:23:39,634 INFO tcp_com.py test_tcpserver: New Connection : ('127.0.0.1', 62313)
+2023-03-29 17:23:39,634 INFO tcp_com.py test_tcpserver: データ取得 : {"cmd": "CMD_TEST"}
+2023-03-29 17:23:39,635 INFO tcp_com.py test_tcpclient: コマンドの送信が成功しました。
+2023-03-29 17:23:39,637 INFO tcp_com.py test_tcpserver: New Connection : ('127.0.0.1', 62314)
+2023-03-29 17:23:39,638 INFO tcp_com.py test_tcpserver: データ取得 : {"cmd": "INVALID_CMD"}
+2023-03-29 17:23:39,638 ERROR tcp_com.py test_tcpserver: 受信したコマンドが不正です: 'イベント INVALID_CMD に対応するハンドラが登録されていません。'
+Traceback (most recent call last):
+  File "C:\Users\N533\Local_IPS\Documents\Python\juutenshisaku\app_template\code\src\templates\comm\tcp_com.py", line 171, in handle_connection
+    self.cmd_dispatcher.dispatch(command, instance=self, connection=connection, data_dict=data_dict)
+  File "C:\Users\N533\Local_IPS\Documents\Python\juutenshisaku\app_template\code\src\templates\comm\tcp_com.py", line 51, in dispatch
+    raise e
+  File "C:\Users\N533\Local_IPS\Documents\Python\juutenshisaku\app_template\code\src\templates\comm\tcp_com.py", line 47, in dispatch
+    for handler in self._handlers[event]:
+KeyError: 'イベント INVALID_CMD に対応するハンドラが登録されていません。'
+2023-03-29 17:23:39,638 ERROR tcp_com.py test_tcpclient: コマンドINVALID_CMDが登録されていません。
+2023-03-29 17:23:39,639 INFO tcp_com.py test_tcpserver: サーバーを停止しています...
+2023-03-29 17:23:39,640 WARNING tcp_com.py test_tcpserver: サーバーは停止しました。
