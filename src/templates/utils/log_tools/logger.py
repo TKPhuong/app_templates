@@ -5,12 +5,12 @@ import os
 
 class Logger(logging.Logger):
     def __init__(
-        self,
-        name="main",
-        level="info",
-        format="%(asctime)s %(levelname)s %(filename)s %(name)s: %(message)s",
-        file_path="./log/log.txt",
-        backup_count=18,
+    self,
+    name="main",
+    level="info",
+    format="%(asctime)s [%(levelname)s] %(filename)s:%(lineno)d %(name)s: %(message)s",
+    file_path="./log/log.txt",
+    backup_count=18,
     ):
         """
         新しいロガーを生成する
@@ -131,4 +131,42 @@ if __name__ == "__main__":
             x = 1 / 0
         except ZeroDivisionError as e:
             logger4.exception(f"An exception occurred: {e}")
+        
+        # # Processing time testing
+        # import time
+        # import random
+        # import string
+
+        # # generate a random message
+        # def generate_random_message(length):
+        #     """Generate a random string of fixed length """
+        #     return ''.join(random.choices(string.ascii_letters + string.digits, k=length))
+
+        # # How many times to log the message
+        # iterations = 1000
+
+        # # List to store time taken for each iteration
+        # times = []
+        # time_logger = Logger(name="test_time", file_path=f"{tempdir}/log4.log")
+
+        
+        # for _ in range(iterations):
+        #     # Prepare a random message of length between 10 and 200
+        #     message = generate_random_message(random.randint(10, 200))  
+        #     # Start time
+        #     start = time.time()
+
+        #     # Log your message
+        #     time_logger.info(message)
+
+        #     # End time
+        #     end = time.time()
+
+        #     # Append time taken to log a message to list
+        #     times.append(end - start)
+
+        # # Print average time taken to log a message
+        # print(f"Average time taken to log a message: {sum(times) / iterations} seconds")
+
+        # Shut down the logger
         logging.shutdown()

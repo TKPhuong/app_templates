@@ -6,3 +6,4 @@ mkdir_files
 .git
 .db
 .vscode
+log/*

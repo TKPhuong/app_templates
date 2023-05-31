@@ -46,8 +46,8 @@ def test_logger_output(logger, tmpdir):
             assert len(parts) == 5
             assert re.match(datestamp_pattern, parts[0])
             assert re.match(timestamp_pattern, parts[1])
-            assert parts[2] in ['DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL']
-            assert parts[3].endswith('.py')
+            assert parts[2] in ['[DEBUG]', '[INFO]', '[WARNING]', '[ERROR]', '[CRITICAL]']
+            assert re.match(r'.*\.py:\d+$', parts[3]) is not None # filename:line_number
             assert parts[4].startswith('main')
             assert message.startswith('This is ')
             
