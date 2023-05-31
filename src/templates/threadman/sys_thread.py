@@ -5,6 +5,7 @@ import traceback
 from logging import Logger
 from typing import Callable
 from enum import Enum
+import functools
 
 
 class States(Enum):
@@ -37,7 +38,7 @@ class CmdDispatcher:
         """
         if event not in self._handlers:
             self._handlers[event] = []
-        self._handlers[event].append(handler)
+        self._handlers[event].append(self._log_handler(handler))
 
     def dispatch(self, event: str, instance, *args, **kwargs):
         """
@@ -62,9 +63,26 @@ class CmdDispatcher:
             instance._state = States.PROCESSING
             for handler in self._handlers[event]:
                 handler(instance, *args, **kwargs)
-        except KeyError as e:
-            e.args = (f"イベント {event} の処理が登録されていません。", )
-            raise e
+        except KeyError as key_err:
+            raise KeyError(f"イベント {event} の処理が登録されていません。", )
+        except ValueError as val_err:
+            raise val_err
+        except Exception as err:
+            raise err
+    
+    def _log_handler(self, fn):
+        """自動でタスクのログを出力するデコレーター。"""
+        @functools.wraps(fn)
+        def wrapped(self, *args, **kwargs):
+            task = kwargs["task"]
+            # Make sure task has required keys
+            if not all(key in task for key in ["cmd", "from"]):
+                raise ValueError(f"不正なタスク形式が受信しました。'cmd' と 'from' のキーが必要です: タスク＝{task}。", )
+            self.logger.info(f"スレッド {self.name} が スレッド {task['from']} から CMD={task['cmd']} を受け取りました")
+            result = fn(self, *args, **kwargs)
+            self.logger.info(f"スレッド {self.name} が CMD={task['cmd']} を処理しました")
+            return result
+        return wrapped
         
 
 class SysThread:
