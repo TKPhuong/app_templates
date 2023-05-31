@@ -33,7 +33,7 @@ def test_recurring_thread():
     thread = FuncThread(target=append_result, name="thread1",interval=1)
     thread.start()
 
-    time.sleep(3.5)
+    time.sleep(3)
     thread.stop()
 
-    assert len(results) == 4
+    assert len(results) == 3

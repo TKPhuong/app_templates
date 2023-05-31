@@ -6,8 +6,4 @@ mkdir_files
 .git
 .db
 .vscode
-**/log/*
-*.db
-sqlite_db_no_comments.py
-*tempCodeRunnerFile.py
-
+log/*
