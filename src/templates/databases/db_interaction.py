@@ -12,7 +12,7 @@ class DBHandler:
     """
     データベース操作を抽象化するためのハンドラークラス。
     SQLAlchemy ORMを用いて、データベースとのセッション管理、トランザクション処理、
-    データの挿入と選択など基本的なDB操作昨日を高レベルAPIで提供する。
+    データの挿入と選択など基本的なDB操作機能を高レベルAPIで提供する。
 
     Attributes
     ----------
@@ -301,9 +301,3 @@ if __name__ == "__main__":
     print("トランザクション後のユーザを選択しました:")
     for user in transaction_users:
         print(user.name)
-
-
-
-
-
-

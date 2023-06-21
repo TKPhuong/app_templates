@@ -10,5 +10,5 @@ mkdir_files
 *.db
 sqlite_db_no_comments.py
 *tempCodeRunnerFile.py
-*logger copy*
+*copy*
 

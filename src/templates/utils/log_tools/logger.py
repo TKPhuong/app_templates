@@ -11,8 +11,8 @@ class Logger(logging.Logger):
     format="%(asctime)s [%(levelname)s] %(filename)s:%(lineno)d %(name)s: %(message)s",
     file_path="./log/log.txt",
     backup_count=30,
-    rotation="size", # Added rotation parameter
-    max_bytes=1024*10,  # Maximum file size in bytes for size-based rotation
+    rotation="size", 
+    max_bytes=1024*10, 
     ):
         """
         新しいロガーを生成する
@@ -29,7 +29,12 @@ class Logger(logging.Logger):
             ログファイルのパス。ログをファイルに書き込む場合に指定する。
         backup_count : int, optional
             ログファイルのバックアップ数。古いログファイルをローテーションする場合に指定する。
+        rotation : str, optional
+            ファイルローテーションのタイプを指定する。ファイルサイズベースでは設定値を「size」に、時間(日付き)ベースでは「time」に設定する
+        max_bytes : int, optional
+            ファイルローテーションのタイプがファイルサイズベースの場合に、ファイルサイズの上限を指定する。単位はバイト。
         """
+        
         # ロガーを生成し、ログレベルを指定する
         super().__init__(name, level.upper())
 
