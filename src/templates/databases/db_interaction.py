@@ -9,14 +9,42 @@ from typing import Type, Optional
 Base = declarative_base()
 
 class DBHandler:
+    """
+    データベース操作を抽象化するためのハンドラークラス。
+    SQLAlchemy ORMを用いて、データベースとのセッション管理、トランザクション処理、
+    データの挿入と選択など基本的なDB操作昨日を高レベルAPIで提供する。
+
+    Attributes
+    ----------
+    engine : sqlalchemy.engine.Engine
+        SQLAlchemyを使用したデータベースエンジン。
+    Session : sqlalchemy.orm.session.sessionmaker
+        データベースセッションを作成するためのsessionmakerインスタンス。
+    """
 
     def __init__(self, database_uri: str):
+        """
+        Parameters
+        ----------
+        database_uri : str
+            データベースへの接続URI。
+        """
+
         # データベースエンジンの作成
         self.engine = create_engine(database_uri)
         self.Session = sessionmaker(bind=self.engine)
         
     @contextmanager
     def get_session(self) -> Session:
+        """
+        新しいデータベースセッションを開始し、そのコンテキストを提供する。
+
+        Yields
+        ------
+        Session
+            新しいデータベースセッション。
+        """
+                
         # トランザクションの開始
         session = self.Session()
         try:
@@ -33,6 +61,15 @@ class DBHandler:
             
     @contextmanager
     def custom_transaction(self):
+        """
+        ネストされたトランザクションのコンテキストを提供する。
+
+        Yields
+        ------
+        Session
+            ネストされたトランザクションのセッション。
+        """
+
         with self.get_session() as session:
             # ネストされたトランザクションの開始
             session.begin_nested()
@@ -46,6 +83,15 @@ class DBHandler:
                 raise e
     
     def add_model(self, model: Type[Base]):
+        """
+        モデルに対応するテーブルをデータベースに追加する。
+
+        Parameters
+        ----------
+        model : Type[Base]
+            データベースに追加するモデルの型。
+        """
+
         # モデルに対応するテーブルをデータベースに追加する
         model.metadata.create_all(self.engine)
 
@@ -55,6 +101,17 @@ class DBHandler:
     #         model.__table__.drop(self.engine)
 
     def insert(self, instance: Base, session: Optional[Session] = None):
+        """
+        インスタンスをデータベースに追加する。
+
+        Parameters
+        ----------
+        instance : Base
+            データベースに追加するインスタンス。
+        session : Optional[Session], optional
+            追加操作を実行するセッション。指定しない場合、新しいセッションが開始されます。
+        """
+
         # インスタンスをデータベースに追加する
         if session is None:
             with self.get_session() as session:
@@ -63,6 +120,17 @@ class DBHandler:
             session.add(instance)
             
     def insert_many(self, instances: list[Base], session: Optional[Session] = None):
+        """
+        複数のインスタンスをデータベースに追加する。
+
+        Parameters
+        ----------
+        instances : list[Base]
+            データベースに追加するインスタンスのリスト。
+        session : Optional[Session], optional
+            追加操作を実行するセッション。指定しない場合、新しいセッションが開始されます。
+        """
+                
         # 複数のインスタンスをデータベースに追加する
         if session is None:
             with self.get_session() as session:
@@ -71,6 +139,28 @@ class DBHandler:
             session.add_all(instances)
             
     def select(self, model: Type[Base], conditions=None, order_by=None, limit=None, session: Optional[Session] = None):
+        """
+        データベースからインスタンスを選択する。
+
+        Parameters
+        ----------
+        model : Type[Base]
+            選択するインスタンスのモデルの型。
+        conditions : optional
+            選択するインスタンスに適用する条件。
+        order_by : optional
+            結果を並べ替えるための順序。
+        limit : optional
+            取得するインスタンスの最大数。
+        session : Optional[Session], optional
+            選択操作を実行するセッション。指定しない場合、新しいセッションが開始されます。
+
+        Returns
+        -------
+        list
+            選択されたインスタンスのリスト。
+        """
+
         # データベースからインスタンスを選択する
         if session is None:
             with self.get_session() as session:
@@ -94,6 +184,21 @@ class DBHandler:
         return query.all()
 
     def update(self, model: Type[Base], conditions, update_values, session: Optional[Session] = None):
+        """
+        データベースのインスタンスを更新する。
+
+        Parameters
+        ----------
+        model : Type[Base]
+            更新するインスタンスのモデルの型。
+        conditions :
+            更新するインスタンスをフィルタするための条件。
+        update_values :
+            更新する値。
+        session : Optional[Session], optional
+            更新操作を実行するセッション。指定しない場合、新しいセッションが開始されます。
+        """
+
         # データベースのインスタンスを更新する
         if session is None:
             with self.get_session() as session:
@@ -102,6 +207,19 @@ class DBHandler:
             session.query(model).filter(conditions).update(update_values)
 
     def delete(self, model: Type[Base], conditions, session: Optional[Session] = None):
+        """
+        データベースのインスタンスを削除する。
+
+        Parameters
+        ----------
+        model : Type[Base]
+            削除するインスタンスのモデルの型。
+        conditions :
+            削除するインスタンスをフィルタするための条件。
+        session : Optional[Session], optional
+            削除操作を実行するセッション。指定しない場合、新しいセッションが開始されます。
+        """
+
         # データベースのインスタンスを削除する
         if session is None:
             with self.get_session() as session:
