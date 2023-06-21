@@ -10,7 +10,9 @@ class Logger(logging.Logger):
     level="info",
     format="%(asctime)s [%(levelname)s] %(filename)s:%(lineno)d %(name)s: %(message)s",
     file_path="./log/log.txt",
-    backup_count=18,
+    backup_count=30,
+    rotation="size", # Added rotation parameter
+    max_bytes=1024*10,  # Maximum file size in bytes for size-based rotation
     ):
         """
         新しいロガーを生成する
@@ -46,6 +48,23 @@ class Logger(logging.Logger):
             interval=1,
             backupCount=backup_count,
         )
+        if rotation.lower() == "time":
+            fh = logging.handlers.TimedRotatingFileHandler(
+                file_path,
+                encoding="utf-8",
+                when="midnight",
+                interval=1,
+                backupCount=backup_count,
+            )
+        elif rotation.lower() == "size":
+            fh = logging.handlers.RotatingFileHandler(
+                file_path,
+                encoding="utf-8",
+                maxBytes=max_bytes,
+                backupCount=backup_count,
+            )
+        else:
+            raise ValueError("Invalid rotation type. Choose 'time' or 'size'.")
         fh.setLevel(level.upper())
 
         # フォーマッタを生成し、ハンドラにセットする
